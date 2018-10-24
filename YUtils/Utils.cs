@@ -4,8 +4,10 @@ using com.google.zxing.common;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -14,6 +16,7 @@ using Yeah.Core.API;
 
 namespace YUtils
 {
+    #region 消息框
     public class MsgUtils
     {
         public static MessageBoxResult MessageBox(string message, MessageBoxButton button = MessageBoxButton.OK, MessageBoxImage icon = MessageBoxImage.Information, params object[] parameters)
@@ -27,6 +30,7 @@ namespace YUtils
         }
 
     }
+    #endregion
 
     #region 自动关闭指定进程窗口类
     /// 调用示例如下
@@ -919,6 +923,442 @@ namespace YUtils
             return SRC + "?temp=" + DateTime.Now.Millisecond.ToString();
         }
         #endregion
+    }
+    #endregion
+
+    #region 对文件夹的操作
+    public class DirectoryHelper
+    {
+        #region 私有成员
+
+        #endregion
+
+        #region 保护成员
+
+        #endregion
+
+        #region 公有成员
+        //递归实现查找目录下的所有子目录和文件符合后缀的文件 
+        public static void FindFile(string dir, ref StringCollection outfiles, params string[] filtertring)  //参数为指定的目录   
+        {
+            DirectoryInfo theFolder = new DirectoryInfo(dir);
+            FileInfo[] fileInfo = theFolder.GetFiles();
+            foreach (FileInfo NextFile in fileInfo) //遍历文件
+            {
+                string extension = Path.GetExtension(NextFile.Name).ToLower();
+                foreach (string filterstr in filtertring)
+                {
+                    if (filterstr == extension)
+                        outfiles.Add(NextFile.Name);
+                }
+            }
+            DirectoryInfo[] dirInfo = theFolder.GetDirectories();
+            //遍历文件夹
+            foreach (DirectoryInfo NextFolder in dirInfo)
+            {
+                FindFile(NextFolder.FullName, ref outfiles, filtertring);
+            }
+        }
+
+        public static void DeleteDirectory(string dir)
+        {
+            DirectoryInfo theFolder = new DirectoryInfo(dir);
+            //删除子文件
+            FileInfo[] fileInfo = theFolder.GetFiles();
+            foreach (FileInfo NextFile in fileInfo) //遍历文件
+            {
+                NextFile.Delete();
+            }
+            //删除子文件夹
+            DirectoryInfo[] dirInfo = theFolder.GetDirectories();
+            //遍历文件夹
+            foreach (DirectoryInfo NextFolder in dirInfo)
+            {
+                DeleteDirectory(NextFolder.FullName);
+            }
+
+            Directory.Delete(dir);
+
+        }
+
+        public static void CopyDirectory(string dir, string destpath, string exceptfile)  //参数为指定的目录   
+        {
+            if (!Directory.Exists(destpath))
+            {
+                Directory.CreateDirectory(destpath);
+            }
+            DirectoryInfo theFolder = new DirectoryInfo(dir);
+            FileInfo[] fileInfo = theFolder.GetFiles();
+            foreach (FileInfo NextFile in fileInfo) //遍历文件
+            {
+                if (exceptfile != NextFile.FullName)
+                    File.Copy(NextFile.FullName, Path.Combine(destpath, Path.GetFileName(NextFile.FullName)));
+            }
+            DirectoryInfo[] dirInfo = theFolder.GetDirectories();
+            //遍历文件夹
+
+            foreach (DirectoryInfo NextFolder in dirInfo)
+            {
+                string childdestpath = destpath + @"\" + NextFolder.Name;
+                if (!Directory.Exists(childdestpath))
+                {
+                    Directory.CreateDirectory(childdestpath);
+                }
+                CopyDirectory(NextFolder.FullName, childdestpath, exceptfile);
+            }
+        }
+        #endregion
+
+        
+    }
+    #endregion
+
+    #region 生成快捷方式
+    /// YShortcut.CreateShortcut(Shortcut.GetDeskDir() + "\\桌面快捷方式.lnk",@"C:\Windows\notepad.exe",Application.StartupPath, "我的快捷方式");
+    public class YShortcut
+    {
+        [StructLayout(LayoutKind.Sequential)]
+        public struct FILETIME
+        {
+            uint dwLowDateTime;
+            uint dwHighDateTime;
+        }
+
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        public struct WIN32_FIND_DATA
+        {
+            public const int MAX_PATH = 260;
+
+            uint dwFileAttributes;
+            FILETIME ftCreationTime;
+            FILETIME ftLastAccessTime;
+            FILETIME ftLastWriteTime;
+            uint nFileSizeHight;
+            uint nFileSizeLow;
+            uint dwOID;
+
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = MAX_PATH)]
+            string cFileName;
+        }
+
+        [ComImport]
+        [Guid("0000010c-0000-0000-c000-000000000046")]
+        [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+        public interface IPersist
+        {
+            [PreserveSig]
+            void GetClassID(out Guid pClassID);
+        }
+
+        [ComImport]
+        [Guid("0000010b-0000-0000-C000-000000000046")]
+        [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+        public interface IPersistFile
+            : IPersist
+        {
+            new void GetClassID(out Guid pClassID);
+
+            [PreserveSig]
+            int IsDirty();
+
+            [PreserveSig]
+            void Load(
+                [MarshalAs(UnmanagedType.LPWStr)] string pszFileName,
+                uint dwMode);
+
+            [PreserveSig]
+            void Save(
+                [MarshalAs(UnmanagedType.LPWStr)] string pszFileName,
+                [MarshalAs(UnmanagedType.Bool)] bool fRemember);
+
+            [PreserveSig]
+            void SaveCompleted([MarshalAs(UnmanagedType.LPWStr)] string pszFileName);
+
+            [PreserveSig]
+            void GetCurFile([MarshalAs(UnmanagedType.LPWStr)] string ppszFileName);
+        }
+
+        [ComImport]
+        [Guid("000214F9-0000-0000-C000-000000000046")]
+        [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+        public interface IShellLink
+        {
+            [PreserveSig]
+            void GetPath(
+                [MarshalAs(UnmanagedType.LPWStr, SizeParamIndex = 1)] out string pszFile,
+                int cch,
+                ref WIN32_FIND_DATA pfd,
+                uint fFlags);
+
+            [PreserveSig]
+            void GetIDList(out IntPtr ppidl);
+
+            [PreserveSig]
+            void SetIDList(IntPtr ppidl);
+
+            [PreserveSig]
+            void GetDescription(
+                [MarshalAs(UnmanagedType.LPWStr, SizeParamIndex = 1)] out string pszName,
+                int cch);
+
+            [PreserveSig]
+            void SetDescription(
+                [MarshalAs(UnmanagedType.LPWStr)] string pszName);
+
+            [PreserveSig]
+            void GetWorkingDirectory(
+                [MarshalAs(UnmanagedType.LPWStr, SizeParamIndex = 1)] out string pszDir,
+                int cch);
+
+            [PreserveSig]
+            void SetWorkingDirectory(
+                [MarshalAs(UnmanagedType.LPWStr)] string pszDir);
+
+            [PreserveSig]
+            void GetArguments(
+                [MarshalAs(UnmanagedType.LPWStr, SizeParamIndex = 1)] out string pszArgs,
+                int cch);
+
+            [PreserveSig]
+            void SetArguments(
+                [MarshalAs(UnmanagedType.LPWStr)] string pszArgs);
+
+            [PreserveSig]
+            void GetHotkey(out ushort pwHotkey);
+
+            [PreserveSig]
+            void SetHotkey(ushort wHotkey);
+
+            [PreserveSig]
+            void GetShowCmd(out int piShowCmd);
+
+            [PreserveSig]
+            void SetShowCmd(int iShowCmd);
+
+            [PreserveSig]
+            void GetIconLocation(
+                [MarshalAs(UnmanagedType.LPWStr, SizeParamIndex = 1)] out string pszIconPath,
+                int cch,
+                out int piIcon);
+
+            [PreserveSig]
+            void SetIconLocation(
+                [MarshalAs(UnmanagedType.LPWStr)] string pszIconPath,
+                int iIcon);
+
+            [PreserveSig]
+            void SetRelativePath(
+                [MarshalAs(UnmanagedType.LPWStr)] string pszPathRel,
+                uint dwReserved);
+
+            [PreserveSig]
+            void Resolve(
+                IntPtr hwnd,
+                uint fFlags);
+
+            [PreserveSig]
+            void SetPath(
+                [MarshalAs(UnmanagedType.LPWStr)] string pszFile);
+        }
+
+        [GuidAttribute("00021401-0000-0000-C000-000000000046")]
+        [ClassInterfaceAttribute(ClassInterfaceType.None)]
+        [ComImportAttribute()]
+        public class CShellLink
+        {
+        }
+
+        public const int SW_SHOWNORMAL = 1;
+        /// <summary>
+        /// 创建快捷方式。
+        /// </summary>
+        /// <param name="shortcutPath">快捷方式路径。</param>
+        /// <param name="targetPath">目标路径。</param>
+        /// <param name="workingDirectory">工作路径。</param>
+        /// <param name="description">快捷键描述。</param>
+        public static void CreateShortcut(string shortcutPath, string targetPath, string workingDirectory, string description)
+        {
+            CShellLink cShellLink = new CShellLink();
+            IShellLink iShellLink = (IShellLink)cShellLink;
+            iShellLink.SetDescription(description);
+            iShellLink.SetShowCmd(SW_SHOWNORMAL);
+            iShellLink.SetPath(targetPath);
+            iShellLink.SetWorkingDirectory(workingDirectory);
+            IPersistFile iPersistFile = (IPersistFile)iShellLink;
+            iPersistFile.Save(shortcutPath, false);
+            Marshal.ReleaseComObject(iPersistFile);
+            iPersistFile = null;
+            Marshal.ReleaseComObject(iShellLink);
+            iShellLink = null;
+            Marshal.ReleaseComObject(cShellLink);
+            cShellLink = null;
+        }
+
+        internal const uint SHGFP_TYPE_CURRENT = 0;
+        internal const int MAX_PATH = 260;
+        internal const uint CSIDL_COMMON_STARTMENU = 0x0016;              // All Users\Start Menu
+        internal const uint CSIDL_COMMON_PROGRAMS = 0x0017;               // All Users\Start Menu\Programs
+        internal const uint CSIDL_COMMON_DESKTOPDIRECTORY = 0x0019;       // All Users\Desktop
+        internal const uint CSIDL_PROGRAM_FILES = 0x0026;                 // C:\Program Files
+        internal const uint CSIDL_FLAG_CREATE = 0x8000;                   // new for Win2K, or this in to force creation of folder
+
+        [DllImport("shell32.dll", CharSet = CharSet.Unicode, PreserveSig = false)]
+        internal static extern void SHGetFolderPathW(
+            IntPtr hwndOwner,
+            int nFolder,
+            IntPtr hToken,
+            uint dwFlags,
+            IntPtr pszPath);
+
+        internal static string SHGetFolderPath(int nFolder)
+        {
+            string pszPath = new string(' ', MAX_PATH);
+            IntPtr bstr = Marshal.StringToBSTR(pszPath);
+            SHGetFolderPathW(IntPtr.Zero, nFolder, IntPtr.Zero, SHGFP_TYPE_CURRENT, bstr);
+            string path = Marshal.PtrToStringBSTR(bstr);
+            int index = path.IndexOf('\0');
+            string path2 = path.Substring(0, index);
+            Marshal.FreeBSTR(bstr);
+            return path2;
+        }
+
+
+        public static string GetSpecialFolderPath(uint csidl)
+        {
+            return SHGetFolderPath((int)(csidl | CSIDL_FLAG_CREATE));
+        }
+
+        public static string GetDeskDir()
+        {
+            return GetSpecialFolderPath(CSIDL_COMMON_DESKTOPDIRECTORY);
+        }
+
+        public static string GetProgramsDir()
+        {
+            return GetSpecialFolderPath(CSIDL_COMMON_PROGRAMS);
+        }
+    }
+    #endregion
+
+    #region 反射处理
+    /// <summary>  
+    /// 反射结果类  
+    /// </summary>  
+    public class AssemblyResult
+    {
+        /// <summary>  
+        /// 程序集名称  
+        /// </summary>  
+        public List<string> AssemblyName { get; set; }
+
+        /// <summary>  
+        /// 类名  
+        /// </summary>  
+        public List<string> ClassName { get; set; }
+
+        /// <summary>  
+        /// 类的属性  
+        /// </summary>  
+        public List<string> Properties { get; set; }
+
+        /// <summary>  
+        /// 类的方法  
+        /// </summary>  
+        public List<string> Methods { get; set; }
+    }
+
+    /// <summary>
+    /// 反射处理类
+    /// </summary>
+    public class AssemblyHandler
+    {
+        string path = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + @"/MyDLL/";
+
+        /// <summary>
+        /// 获取程序集名称列表
+        /// </summary>
+        public AssemblyResult GetAssemblyName()
+        {
+            AssemblyResult result = new AssemblyResult();
+            string[] dicFileName = Directory.GetFileSystemEntries(path);
+            if (dicFileName != null)
+            {
+                List<string> assemblyList = new List<string>();
+                foreach (string name in dicFileName)
+                {
+                    assemblyList.Add(name.Substring(name.LastIndexOf('/') + 1));
+                }
+                result.AssemblyName = assemblyList;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取程序集中的类名称
+        /// </summary>
+        /// <param name="assemblyName">程序集</param>
+        public AssemblyResult GetClassName(string assemblyName)
+        {
+            AssemblyResult result = new AssemblyResult();
+            if (!String.IsNullOrEmpty(assemblyName))
+            {
+                assemblyName = path + assemblyName;
+                Assembly assembly = Assembly.LoadFrom(assemblyName);
+                Type[] ts = assembly.GetTypes();
+                List<string> classList = new List<string>();
+                foreach (Type t in ts)
+                {
+                    //classList.Add(t.Name);
+                    classList.Add(t.FullName);
+                }
+                result.ClassName = classList;
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 获取类的属性、方法
+        /// </summary>
+        /// <param name="assemblyName">程序集</param>
+        /// <param name="className">类名</param>
+        public AssemblyResult GetClassInfo(string assemblyName, string className)
+        {
+            AssemblyResult result = new AssemblyResult();
+            if (!String.IsNullOrEmpty(assemblyName) && !String.IsNullOrEmpty(className))
+            {
+                assemblyName = path + assemblyName;
+                Assembly assembly = Assembly.LoadFrom(assemblyName);
+                Type type = assembly.GetType(className, true, true);
+                if (type != null)
+                {
+                    //类的属性
+                    List<string> propertieList = new List<string>();
+                    PropertyInfo[] propertyinfo = type.GetProperties(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                    foreach (PropertyInfo p in propertyinfo)
+                    {
+                        propertieList.Add(p.ToString());
+                    }
+                    result.Properties = propertieList;
+
+                    //类的方法
+                    List<string> methods = new List<string>();
+                    MethodInfo[] methodInfos = type.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                    foreach (MethodInfo mi in methodInfos)
+                    {
+                        methods.Add(mi.Name);
+                        //方法的参数
+                        //foreach (ParameterInfo p in mi.GetParameters())
+                        //{
+
+                        //}
+                        //方法的返回值
+                        //string returnParameter = mi.ReturnParameter.ToString();
+                    }
+                    result.Methods = methods;
+                }
+            }
+            return result;
+        }
     }
     #endregion
 }
