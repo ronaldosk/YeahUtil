@@ -1,4 +1,5 @@
-﻿using System;
+﻿//双向链表
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
