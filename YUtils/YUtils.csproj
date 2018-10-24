@@ -34,10 +34,20 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ref\BarcodeLib.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="QRCodeProvider, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ref\QRCodeProvider.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,9 +56,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\APIsClipboard.cs" />
+    <Compile Include="API\APIsColorUtil.cs" />
+    <Compile Include="API\APIsComctl32.cs" />
+    <Compile Include="API\APIsCOMInterfaces.cs" />
+    <Compile Include="API\APIsEnums.cs" />
+    <Compile Include="API\APIsGdi.cs" />
+    <Compile Include="API\APIsMenu.cs" />
+    <Compile Include="API\APIsShell.cs" />
+    <Compile Include="API\APIsShlwapi.cs" />
+    <Compile Include="API\APIsStructs.cs" />
+    <Compile Include="API\APIsTextUtil.cs" />
+    <Compile Include="API\APIsUser32.cs" />
+    <Compile Include="API\APIsUxTheme.cs" />
+    <Compile Include="API\APIsWin32.cs" />
+    <Compile Include="API\APIsWndProc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="Utils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ref\Acey.ExcelX.dll" />
+    <Content Include="Ref\Acey.ExcelX.xml" />
+    <Content Include="Ref\Aspose.Cells.dll" />
+    <Content Include="Ref\BarcodeLib.dll" />
+    <Content Include="Ref\BaseUtils.dll" />
+    <Content Include="Ref\common.dll" />
+    <Content Include="Ref\QRCodeProvider.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
