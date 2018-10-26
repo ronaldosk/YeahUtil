@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using YeahTools;
 using YeahTools.GeometricHelper;
+using YeahTools.HelperForm;
 
 namespace Test
 {
@@ -64,6 +65,13 @@ namespace Test
             //    outMsg += string.Format("[{0},{1}]\r\n", pt.X, pt.Y);
             //}
             MessageBox.Show(outMsg);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            CodeGenerate codg = new CodeGenerate();
+            if (codg.ShowDialog() == DialogResult.OK)
+                return;
         }
     }
 }

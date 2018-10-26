@@ -37,7 +37,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlHelper\YListView.cs" />
-    <Compile Include="DataStruct\DoubleLink.cs" />
     <Compile Include="EMSHelper.cs" />
     <Compile Include="GeometricHelper\SortHelper.cs" />
     <Compile Include="GlobalCommon.cs" />

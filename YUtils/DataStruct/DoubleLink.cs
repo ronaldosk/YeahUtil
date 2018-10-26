@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YeahTools.DataStruct
+namespace YUtils.DataStruct
 {
     /// <summary>
     /// 双向链表节点
@@ -106,11 +106,56 @@ namespace YeahTools.DataStruct
         public void DelLast() => Del(_size - 1);
         public void ShowAll(out string outMsg)
         {
-            outMsg = "******************* 链表数据如下 *******************";
+            outMsg = "******************* 链表数据如下 *******************\r\n";
             for (int i = 0; i < _size; i++)
-                outMsg = string.Format("(" + i + ")=" + Get(i));
-            outMsg = "******************* 链表数据展示完毕 *******************\n";
+                outMsg += string.Format("(" + i + ")=" + Get(i));
+            outMsg += "\r\n******************* 链表数据展示完毕 *******************\n";
         }
+        public void Update(int index, T newData)
+        {
+            GetNode(index).Data = newData;
+        }
+
+        #region 删除和参照值一样的节点
+        #region 重要说明 -dev 这个逻辑应该可以推广给List类等，【如果用递归当然也可以，本逻辑是不用递归，而是使用while来实现，这样一次循环就解决完问题，时间复杂度低】（划重点）
+        //这段逻辑可用于处理类似“要对符合某条件（例如值相等）下，某个节点删除，然后后续节点做一些数据处理”的场景需求
+        //逻辑的核心理念是：，具体逻辑的说明如下：
+        //因为要满足上述需求场景，但是做完指定节点删除之后，集合里节点少了，
+        //那么通过每次循环时，处理前集合大小和处理后集合大小是否不同，来判定是否本次做了删除处理，
+        //但是考虑到删除的节点肯定不是连续出现的，为防止一旦下一个正确节点，大小不会变，因此将索引值和当前集合大小比较一下，当索引值等于最新的集合大小，说明已经处理到最后一条记录了，循环可以结束
+        #endregion
+        /// <summary>
+        /// 删除和参照值一样的节点
+        /// 只当 T 的类型是string，char，int，double等这一类的可以通过ToString()只去比较相等的类型时调用
+        /// </summary>
+        /// <param name="sameData"></param>
+        public void DelNodeByCondition(T sameData)
+        {
+            int size = GetSize();
+            int newsize = 0, j = 0;
+            while (size != newsize || j != newsize)
+            {
+                size = newsize;
+
+                if (equals(Get(j), sameData))//1、符合某条件
+                {
+                    Del(j);//2、某个节点删除
+                    //To do......//3、然后后续节点做一些数据处理
+                    j--;//因为删除了一个节点，实际已经前移的数据本次并没有被处理，为了保证下次循环要去处理前移的数据，所以索引要减一
+                }
+                newsize = GetSize();
+                j++;
+            }
+        }
+
+        private bool equals(T Data1, T Data2)
+        {
+            if (Data1.ToString() == Data2.ToString())
+                return true;
+            else
+                return false;
+        }
+        #endregion
     }
 
 

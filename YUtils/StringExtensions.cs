@@ -1,4 +1,5 @@
 ﻿using System;
+using YUtils.DataStruct;
 
 namespace YUtils
 {
@@ -6,14 +7,55 @@ namespace YUtils
     {
         public static string LowerFirstChar(this string str)
         {
+            if (string.IsNullOrWhiteSpace(str))
+                return string.Empty;
             return str.Substring(0, 1).ToLower() + str.Substring(1);
+        }
+
+        public static string UperFirstChar(this string str)
+        {
+            if (string.IsNullOrWhiteSpace(str))
+                return string.Empty;
+            return str.Substring(0, 1).ToUpper() + str.Substring(1);
+        }
+
+        public static string CamelCaseName(this string sName)
+        {
+            sName = sName.TrimEnd();
+            DoubleLink<char> dlStr = new DoubleLink<char>();
+            for(int i=0;i<sName.Length;i++)
+            {
+                dlStr.Append(i, sName[i]);
+            }
+            string msg = "";
+            dlStr.ShowAll(out msg);
+
+            //此处实际是针对具体业务场景，针对性的重新实现了DoubleLink类型的DelNodeByCondition逻辑，参照DelNodeByCondition的代码说明
+            int size = dlStr.GetSize();
+            int newsize = 0, j = 0;
+            while (size != newsize || j != newsize)
+            {
+                size = newsize;
+                if (dlStr.Get(j) == 32)//这个是比较相等的方法
+                {
+                    dlStr.Del(j);
+                    dlStr.Update(j, char.ToUpper(dlStr.Get(j)));//这就是特殊增加的后续数据处理逻辑
+                    j--;
+                }
+                newsize = dlStr.GetSize();
+                j++;
+            }
+
+            dlStr.ShowAll(out msg);
+
+            return msg;
         }
     }
 
     #region 工具类--对string对象的操作
     public static class NumberString
     {
-        
+
         #region 公有方法
         public static Decimal ToDec(this string source)
         {
@@ -51,7 +93,7 @@ namespace YUtils
             }
         }
 
-        public static double ToDouble(this string  source)
+        public static double ToDouble(this string source)
         {
             try
             {
