@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using YeahTools;
 using YeahTools.GeometricHelper;
 using YeahTools.HelperForm;
+using YeahAlgorithms.Core;
 
 namespace Test
 {
@@ -72,6 +73,19 @@ namespace Test
             CodeGenerate codg = new CodeGenerate();
             if (codg.ShowDialog() == DialogResult.OK)
                 return;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            //int[] iarry = { 1, 22, 5, 77, 33, 65, 45, 8, 894, 84, 8, 1 };
+            ////iarry.QSortAsc();
+            //iarry.QSortDesc();
+            //MessageBox.Show(iarry.ShowAll());
+
+            double[] darry = { 1, 22, 5, 77, 33, 65, 45, 8, 894, 84, 8, 1 };
+            //darry.dQSortAsc();
+            darry.dQSortDesc();
+            MessageBox.Show(darry.ShowAll());
         }
     }
 }

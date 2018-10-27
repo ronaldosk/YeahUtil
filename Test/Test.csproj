@@ -80,6 +80,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\YeahAlgorithms.Core\YeahAlgorithms.Core.csproj">
+      <Project>{243893ce-9418-43e8-93a9-2c8c969c49bd}</Project>
+      <Name>YeahAlgorithms.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\YeahTools\YeahTools.csproj">
       <Project>{c728242e-8de3-4090-a2aa-4a633fe928a8}</Project>
       <Name>YeahTools</Name>
