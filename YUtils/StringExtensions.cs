@@ -33,6 +33,8 @@ namespace YUtils
             //此处实际是针对具体业务场景，针对性的重新实现了DoubleLink类型的DelNodeByCondition逻辑，参照DelNodeByCondition的代码说明
             int size = dlStr.GetSize();
             int newsize = 0, j = 0;
+            if (size == 1)
+                return dlStr.Get(0).ToString();
             while (size != newsize || j != newsize)
             {
                 size = newsize;
@@ -46,9 +48,12 @@ namespace YUtils
                 j++;
             }
 
-            dlStr.ShowAll(out msg);
+            string outStr = "";
+            for (int i = 0; i < dlStr.GetSize(); i++)
+                outStr += dlStr.Get(i).ToString();
+            
 
-            return msg;
+            return outStr;
         }
     }
 

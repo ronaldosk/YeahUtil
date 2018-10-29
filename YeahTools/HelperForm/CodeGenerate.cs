@@ -23,8 +23,7 @@ namespace YeahTools.HelperForm
             this.dgvView.Rows.Add();
             this.dgvView.Rows[1].Cells[0].Value = "CreateOrUpdateModal";
             this.dgvView.Rows[1].Cells[1].Value = 1;
-
-            MessageBox.Show("m name  path Address ".CamelCaseName());
+            
         }
 
         #region BusinessName 属性
@@ -153,17 +152,19 @@ namespace YeahTools.HelperForm
         }
 
         #endregion
+        
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_Validated(object sender, EventArgs e)
         {
             BusinessName = this.textBox1.Text;
 
             if (this.checkBox1.Checked)
-                BusinessName = BusinessName.UperFirstChar();
+                BusinessName = BusinessName.CamelCaseName();
             this.textBox2.Text = ServiceFolder;
             this.textBox3.Text = ServiceInterfaceName;
             this.textBox4.Text = ServiceName;
             this.textBox7.Text = ViewFolder;
+            this.textBox1.Text = BusinessName;
         }
     }
 }
