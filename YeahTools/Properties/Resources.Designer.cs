@@ -61,6 +61,33 @@ namespace YeahTools.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Advanced Settings.Internal Trace 的本地化字符串。
+        /// </summary>
+        internal static string AdvancedSettingsInternalTrace {
+            get {
+                return ResourceManager.GetString("AdvancedSettingsInternalTrace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 CodeBuilder Exit 的本地化字符串。
+        /// </summary>
+        internal static string CodeBuilderExit {
+            get {
+                return ResourceManager.GetString("CodeBuilderExit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Code Generation.General 的本地化字符串。
+        /// </summary>
+        internal static string CodeGenerationGeneral {
+            get {
+                return ResourceManager.GetString("CodeGenerationGeneral", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 ConfigurationSection {0} load failure 的本地化字符串。
         /// </summary>
         internal static string ConfigurationSectionLoadFailure {
@@ -70,11 +97,128 @@ namespace YeahTools.Properties {
         }
         
         /// <summary>
+        ///   查找类似 DataSource Manager.DataSources 的本地化字符串。
+        /// </summary>
+        internal static string DataSourceManagerDataSources {
+            get {
+                return ResourceManager.GetString("DataSourceManagerDataSources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 DisplayName or FileName cann&apos;t set empty 的本地化字符串。
+        /// </summary>
+        internal static string DisplayNameOrFileNameCanntSetEmpty {
+            get {
+                return ResourceManager.GetString("DisplayNameOrFileNameCanntSetEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Edit template file failure! 的本地化字符串。
+        /// </summary>
+        internal static string EditTemplateFileFailure {
+            get {
+                return ResourceManager.GetString("EditTemplateFileFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Environment.Recent Files 的本地化字符串。
+        /// </summary>
+        internal static string EnvironmentRecentFiles {
+            get {
+                return ResourceManager.GetString("EnvironmentRecentFiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Export DataSource Failure 的本地化字符串。
+        /// </summary>
+        internal static string ExportDataSourceFailure {
+            get {
+                return ResourceManager.GetString("ExportDataSourceFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Export DataSource {0} 的本地化字符串。
+        /// </summary>
+        internal static string ExportDataSourceFormat {
+            get {
+                return ResourceManager.GetString("ExportDataSourceFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Export {0} 的本地化字符串。
+        /// </summary>
+        internal static string ExportFormat {
+            get {
+                return ResourceManager.GetString("ExportFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Export PDM File Failure 的本地化字符串。
+        /// </summary>
+        internal static string ExportPDMFileFailure {
+            get {
+                return ResourceManager.GetString("ExportPDMFileFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Generate Failure 的本地化字符串。
+        /// </summary>
+        internal static string GenerateFailure {
+            get {
+                return ResourceManager.GetString("GenerateFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Generation Settings (*.xml)|*.xml 的本地化字符串。
+        /// </summary>
+        internal static string GenerationSettingsFileExt {
+            get {
+                return ResourceManager.GetString("GenerationSettingsFileExt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Invalid Generation Settings File 的本地化字符串。
+        /// </summary>
+        internal static string InvalidGenerationSettingsFile {
+            get {
+                return ResourceManager.GetString("InvalidGenerationSettingsFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Load configuration failure 的本地化字符串。
         /// </summary>
         internal static string LoadConfigurationFailure {
             get {
                 return ResourceManager.GetString("LoadConfigurationFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Modified 的本地化字符串。
+        /// </summary>
+        internal static string Modified {
+            get {
+                return ResourceManager.GetString("Modified", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Name or Connectionstring cann&apos;t set empty 的本地化字符串。
+        /// </summary>
+        internal static string NameOrConnectionstringCanntSetEmpty {
+            get {
+                return ResourceManager.GetString("NameOrConnectionstringCanntSetEmpty", resourceCulture);
             }
         }
         
@@ -115,11 +259,272 @@ namespace YeahTools.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Open Code Generation Folder 的本地化字符串。
+        /// </summary>
+        internal static string OpenCodeGenerationFolder {
+            get {
+                return ResourceManager.GetString("OpenCodeGenerationFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Open Code Generation Folder Failure! 的本地化字符串。
+        /// </summary>
+        internal static string OpenCodeGenerationFolderFailure {
+            get {
+                return ResourceManager.GetString("OpenCodeGenerationFolderFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Open {0} 的本地化字符串。
+        /// </summary>
+        internal static string OpenFormat {
+            get {
+                return ResourceManager.GetString("OpenFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Open Generation Settings File 的本地化字符串。
+        /// </summary>
+        internal static string OpenGenerationSettingsFile {
+            get {
+                return ResourceManager.GetString("OpenGenerationSettingsFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Open PowerDesigner PDM File 的本地化字符串。
+        /// </summary>
+        internal static string OpenPowerDesignerPDMFile {
+            get {
+                return ResourceManager.GetString("OpenPowerDesignerPDMFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Package name is invalid,please input the english letters. 的本地化字符串。
+        /// </summary>
+        internal static string PackageNameInvalid {
+            get {
+                return ResourceManager.GetString("PackageNameInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Physical Data Model (*.pdm)|*.pdm 的本地化字符串。
+        /// </summary>
+        internal static string PhysicalDataModelFileExt {
+            get {
+                return ResourceManager.GetString("PhysicalDataModelFileExt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Ready 的本地化字符串。
+        /// </summary>
+        internal static string Ready {
+            get {
+                return ResourceManager.GetString("Ready", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Remove datasource item failure! 的本地化字符串。
+        /// </summary>
+        internal static string RemoveDatasourceItemFailure {
+            get {
+                return ResourceManager.GetString("RemoveDatasourceItemFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Remove template item failure! 的本地化字符串。
+        /// </summary>
+        internal static string RemoveTemplateItemFailure {
+            get {
+                return ResourceManager.GetString("RemoveTemplateItemFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Save configuration failure 的本地化字符串。
         /// </summary>
         internal static string SaveConfigurationFailure {
             get {
                 return ResourceManager.GetString("SaveConfigurationFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Saved 的本地化字符串。
+        /// </summary>
+        internal static string Saved {
+            get {
+                return ResourceManager.GetString("Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Save DataSource Items Failure 的本地化字符串。
+        /// </summary>
+        internal static string SaveDataSourceItemsFailure {
+            get {
+                return ResourceManager.GetString("SaveDataSourceItemsFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Save Environment.RecentFiles Failure! 的本地化字符串。
+        /// </summary>
+        internal static string SaveEnvironmentRecentFilesFailure {
+            get {
+                return ResourceManager.GetString("SaveEnvironmentRecentFilesFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Save {0}... 的本地化字符串。
+        /// </summary>
+        internal static string SaveFormat {
+            get {
+                return ResourceManager.GetString("SaveFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Save Generation Settings File 的本地化字符串。
+        /// </summary>
+        internal static string SaveGenerationSettingsFile {
+            get {
+                return ResourceManager.GetString("SaveGenerationSettingsFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Save Options.CodeGeneration.General Failure 的本地化字符串。
+        /// </summary>
+        internal static string SaveOptionsCodeGenerationGeneralFailure {
+            get {
+                return ResourceManager.GetString("SaveOptionsCodeGenerationGeneralFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Save Options.InternalTraceLevel Failure 的本地化字符串。
+        /// </summary>
+        internal static string SaveOptionsInternalTraceLevelFailure {
+            get {
+                return ResourceManager.GetString("SaveOptionsInternalTraceLevelFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Save/New template file failure! 的本地化字符串。
+        /// </summary>
+        internal static string SaveOrNewTemplateFileFailure {
+            get {
+                return ResourceManager.GetString("SaveOrNewTemplateFileFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Save template file: {0} failure! 的本地化字符串。
+        /// </summary>
+        internal static string SaveTemplateFileFailure {
+            get {
+                return ResourceManager.GetString("SaveTemplateFileFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Save Template Items Failure! 的本地化字符串。
+        /// </summary>
+        internal static string SaveTemplateItemsFailure {
+            get {
+                return ResourceManager.GetString("SaveTemplateItemsFailure", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You should checked a tables or views treenode 的本地化字符串。
+        /// </summary>
+        internal static string ShouldCheckedTreeNode {
+            get {
+                return ResourceManager.GetString("ShouldCheckedTreeNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 You should select one template at least. 的本地化字符串。
+        /// </summary>
+        internal static string ShouldSelectOneTemplate {
+            get {
+                return ResourceManager.GetString("ShouldSelectOneTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Starting CodeBuilder 的本地化字符串。
+        /// </summary>
+        internal static string StartingCodeBuilder {
+            get {
+                return ResourceManager.GetString("StartingCodeBuilder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Startup 的本地化字符串。
+        /// </summary>
+        internal static string Startup {
+            get {
+                return ResourceManager.GetString("Startup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Tables 的本地化字符串。
+        /// </summary>
+        internal static string Tables {
+            get {
+                return ResourceManager.GetString("Tables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Task ID parameter must be unique 的本地化字符串。
+        /// </summary>
+        internal static string TaskId {
+            get {
+                return ResourceManager.GetString("TaskId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Template file not found 的本地化字符串。
+        /// </summary>
+        internal static string TemplateFileNotFound {
+            get {
+                return ResourceManager.GetString("TemplateFileNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Template Manager.Templates 的本地化字符串。
+        /// </summary>
+        internal static string TemplateManagerTemplates {
+            get {
+                return ResourceManager.GetString("TemplateManagerTemplates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Views 的本地化字符串。
+        /// </summary>
+        internal static string Views {
+            get {
+                return ResourceManager.GetString("Views", resourceCulture);
             }
         }
     }

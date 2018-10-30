@@ -117,13 +117,80 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AdvancedSettingsInternalTrace" xml:space="preserve">
+    <value>Advanced Settings.Internal Trace</value>
+    <comment>高级设置.日志
+退出CodeBuilder
+代码生成.常规
+数据源管理.数据源</comment>
+  </data>
+  <data name="CodeBuilderExit" xml:space="preserve">
+    <value>CodeBuilder Exit</value>
+    <comment>退出CodeBuilder</comment>
+  </data>
+  <data name="CodeGenerationGeneral" xml:space="preserve">
+    <value>Code Generation.General</value>
+    <comment>代码生成.常规</comment>
+  </data>
   <data name="ConfigurationSectionLoadFailure" xml:space="preserve">
     <value>ConfigurationSection {0} load failure</value>
     <comment>配置节 {0} 加载失败</comment>
   </data>
+  <data name="DataSourceManagerDataSources" xml:space="preserve">
+    <value>DataSource Manager.DataSources</value>
+    <comment>数据源管理.数据源</comment>
+  </data>
+  <data name="DisplayNameOrFileNameCanntSetEmpty" xml:space="preserve">
+    <value>DisplayName or FileName cann't set empty</value>
+    <comment>显示名称或文件名不能为空</comment>
+  </data>
+  <data name="EditTemplateFileFailure" xml:space="preserve">
+    <value>Edit template file failure!</value>
+    <comment>编辑模板文件失败</comment>
+  </data>
+  <data name="EnvironmentRecentFiles" xml:space="preserve">
+    <value>Environment.Recent Files</value>
+    <comment>环境.最近文件</comment>
+  </data>
+  <data name="ExportDataSourceFailure" xml:space="preserve">
+    <value>Export DataSource Failure</value>
+    <comment>导出数据源失败</comment>
+  </data>
+  <data name="ExportDataSourceFormat" xml:space="preserve">
+    <value>Export DataSource {0}</value>
+    <comment>导出数据源 {0}</comment>
+  </data>
+  <data name="ExportFormat" xml:space="preserve">
+    <value>Export {0}</value>
+    <comment>导出 {0}</comment>
+  </data>
+  <data name="ExportPDMFileFailure" xml:space="preserve">
+    <value>Export PDM File Failure</value>
+    <comment>导出PDM文件失败</comment>
+  </data>
+  <data name="GenerateFailure" xml:space="preserve">
+    <value>Generate Failure</value>
+    <comment>生成失败</comment>
+  </data>
+  <data name="GenerationSettingsFileExt" xml:space="preserve">
+    <value>Generation Settings (*.xml)|*.xml</value>
+    <comment>生成设置文件 (*.xml)|*.xml</comment>
+  </data>
+  <data name="InvalidGenerationSettingsFile" xml:space="preserve">
+    <value>Invalid Generation Settings File</value>
+    <comment>无效的生成设置文件</comment>
+  </data>
   <data name="LoadConfigurationFailure" xml:space="preserve">
     <value>Load configuration failure</value>
     <comment>加载应用程序配置文件失败</comment>
+  </data>
+  <data name="Modified" xml:space="preserve">
+    <value>Modified</value>
+    <comment>已修改</comment>
+  </data>
+  <data name="NameOrConnectionstringCanntSetEmpty" xml:space="preserve">
+    <value>Name or Connectionstring cann't set empty</value>
+    <comment>名称或连接字符串不能为空</comment>
   </data>
   <data name="NotFoundDataTypeItem" xml:space="preserve">
     <value>Not Found {0} {1} Data Type Item</value>
@@ -141,8 +208,124 @@
     <value>Sorry!CodeBuilder not support this database.</value>
     <comment>对不起！该CodeBuilder版本不支持此数据库.</comment>
   </data>
+  <data name="OpenCodeGenerationFolder" xml:space="preserve">
+    <value>Open Code Generation Folder</value>
+    <comment>打开代码生成文件夹</comment>
+  </data>
+  <data name="OpenCodeGenerationFolderFailure" xml:space="preserve">
+    <value>Open Code Generation Folder Failure!</value>
+    <comment>打开代码生成文件夹失败!</comment>
+  </data>
+  <data name="OpenFormat" xml:space="preserve">
+    <value>Open {0}</value>
+    <comment>打开 {0}</comment>
+  </data>
+  <data name="OpenGenerationSettingsFile" xml:space="preserve">
+    <value>Open Generation Settings File</value>
+    <comment>打开生成设置文件</comment>
+  </data>
+  <data name="OpenPowerDesignerPDMFile" xml:space="preserve">
+    <value>Open PowerDesigner PDM File</value>
+    <comment>打开 PowerDesigner PDM 文件</comment>
+  </data>
+  <data name="PackageNameInvalid" xml:space="preserve">
+    <value>Package name is invalid,please input the english letters.</value>
+    <comment>包名无效,请输入英文字符</comment>
+  </data>
+  <data name="PhysicalDataModelFileExt" xml:space="preserve">
+    <value>Physical Data Model (*.pdm)|*.pdm</value>
+    <comment>Physical Data Model (*.pdm)|*.pdm</comment>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+    <comment>准备</comment>
+  </data>
+  <data name="RemoveDatasourceItemFailure" xml:space="preserve">
+    <value>Remove datasource item failure!</value>
+    <comment>删除数据源项失败!</comment>
+  </data>
+  <data name="RemoveTemplateItemFailure" xml:space="preserve">
+    <value>Remove template item failure!</value>
+    <comment>删除模板项失败!</comment>
+  </data>
   <data name="SaveConfigurationFailure" xml:space="preserve">
     <value>Save configuration failure</value>
     <comment>保存应用程序配置文件失败</comment>
+  </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Saved</value>
+    <comment>已保存</comment>
+  </data>
+  <data name="SaveDataSourceItemsFailure" xml:space="preserve">
+    <value>Save DataSource Items Failure</value>
+    <comment>保存数据源设置失败</comment>
+  </data>
+  <data name="SaveEnvironmentRecentFilesFailure" xml:space="preserve">
+    <value>Save Environment.RecentFiles Failure!</value>
+    <comment>保存 环境.最近文件 设置失败!</comment>
+  </data>
+  <data name="SaveFormat" xml:space="preserve">
+    <value>Save {0}...</value>
+    <comment>保存 {0}...</comment>
+  </data>
+  <data name="SaveGenerationSettingsFile" xml:space="preserve">
+    <value>Save Generation Settings File</value>
+    <comment>保存生成设置项文件</comment>
+  </data>
+  <data name="SaveOptionsCodeGenerationGeneralFailure" xml:space="preserve">
+    <value>Save Options.CodeGeneration.General Failure</value>
+    <comment>保存 代码生成.常规 设置失败</comment>
+  </data>
+  <data name="SaveOptionsInternalTraceLevelFailure" xml:space="preserve">
+    <value>Save Options.InternalTraceLevel Failure</value>
+    <comment>保存 日志.日志级别 设置失败</comment>
+  </data>
+  <data name="SaveOrNewTemplateFileFailure" xml:space="preserve">
+    <value>Save/New template file failure!</value>
+    <comment>新增/保存模板文件失败</comment>
+  </data>
+  <data name="SaveTemplateFileFailure" xml:space="preserve">
+    <value>Save template file: {0} failure!</value>
+    <comment>保存模板文件: {0} 失败!</comment>
+  </data>
+  <data name="SaveTemplateItemsFailure" xml:space="preserve">
+    <value>Save Template Items Failure!</value>
+    <comment>保存模板项失败!</comment>
+  </data>
+  <data name="ShouldCheckedTreeNode" xml:space="preserve">
+    <value>You should checked a tables or views treenode</value>
+    <comment>您应该选择一个表或视图节点</comment>
+  </data>
+  <data name="ShouldSelectOneTemplate" xml:space="preserve">
+    <value>You should select one template at least.</value>
+    <comment>您应该选择一个代码模板</comment>
+  </data>
+  <data name="StartingCodeBuilder" xml:space="preserve">
+    <value>Starting CodeBuilder</value>
+    <comment>启动CodeBuilder</comment>
+  </data>
+  <data name="Startup" xml:space="preserve">
+    <value>Startup</value>
+    <comment>启动</comment>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Tables</value>
+    <comment>表</comment>
+  </data>
+  <data name="TaskId" xml:space="preserve">
+    <value>Task ID parameter must be unique</value>
+    <comment>TaskId参数必须唯一</comment>
+  </data>
+  <data name="TemplateFileNotFound" xml:space="preserve">
+    <value>Template file not found</value>
+    <comment>模板文件未找到</comment>
+  </data>
+  <data name="TemplateManagerTemplates" xml:space="preserve">
+    <value>Template Manager.Templates</value>
+    <comment>模板管理.模板</comment>
+  </data>
+  <data name="Views" xml:space="preserve">
+    <value>Views</value>
+    <comment>视图</comment>
   </data>
 </root>

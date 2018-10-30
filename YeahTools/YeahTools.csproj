@@ -115,6 +115,10 @@
     <Compile Include="Function\CodeGenerate\Framework\Util\PathHelper.cs" />
     <Compile Include="Function\CodeGenerate\Framework\Util\SerializeHelper.cs" />
     <Compile Include="Function\CodeGenerate\Framework\Util\StringExtension.cs" />
+    <Compile Include="Function\CodeGenerate\UI\Helpers\ExportModelHelper.cs" />
+    <Compile Include="Function\CodeGenerate\UI\Helpers\GenerationHelper.cs" />
+    <Compile Include="Function\CodeGenerate\UI\Helpers\MessageBoxHelper.cs" />
+    <Compile Include="Function\CodeGenerate\UI\ModelManager.cs" />
     <Compile Include="GlobalCommon.cs" />
     <Compile Include="Function\CodeGenerate\CodeGenerate.cs">
       <SubType>Form</SubType>
@@ -134,6 +138,10 @@
     <ProjectReference Include="..\YeahException\YeahException.csproj">
       <Project>{8E8E2004-8733-46E1-AA2A-5223FF2103D9}</Project>
       <Name>YeahException</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\YUtils.Core\YUtils.Core.csproj">
+      <Project>{a71537ef-d18b-4856-8d56-178f3add0cea}</Project>
+      <Name>YUtils.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
