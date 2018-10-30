@@ -33,10 +33,10 @@
       <HintPath>..\YUtils\Ref\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="NVelocity">
-      <HintPath>..\YUtils\Ref\NVelocity.dll</HintPath>
+      <HintPath>..\Ref\Ref\NVelocity.dll</HintPath>
     </Reference>
     <Reference Include="Oracle.DataAccess">
-      <HintPath>..\YUtils\Ref\Oracle.DataAccess.dll</HintPath>
+      <HintPath>..\Ref\Ref\Oracle.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />

@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YeahAlgorithms.Core", "Yeah
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YUtils.Core", "YUtils.Core\YUtils.Core.csproj", "{A71537EF-D18B-4856-8D56-178F3ADD0CEA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ref", "Ref\Ref.csproj", "{ECA26B05-99B3-405B-A661-AE4C4B221F7E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{A71537EF-D18B-4856-8D56-178F3ADD0CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A71537EF-D18B-4856-8D56-178F3ADD0CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A71537EF-D18B-4856-8D56-178F3ADD0CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA26B05-99B3-405B-A661-AE4C4B221F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA26B05-99B3-405B-A661-AE4C4B221F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA26B05-99B3-405B-A661-AE4C4B221F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA26B05-99B3-405B-A661-AE4C4B221F7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
