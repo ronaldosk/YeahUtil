@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A71537EF-D18B-4856-8D56-178F3ADD0CEA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YUtils.Core</RootNamespace>
+    <AssemblyName>YUtils.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ref\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCodeProvider, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ref\QRCodeProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\APIsClipboard.cs" />
+    <Compile Include="API\APIsColorUtil.cs" />
+    <Compile Include="API\APIsComctl32.cs" />
+    <Compile Include="API\APIsCOMInterfaces.cs" />
+    <Compile Include="API\APIsEnums.cs" />
+    <Compile Include="API\APIsGdi.cs" />
+    <Compile Include="API\APIsMenu.cs" />
+    <Compile Include="API\APIsShell.cs" />
+    <Compile Include="API\APIsShlwapi.cs" />
+    <Compile Include="API\APIsStructs.cs" />
+    <Compile Include="API\APIsTextUtil.cs" />
+    <Compile Include="API\APIsUser32.cs" />
+    <Compile Include="API\APIsUxTheme.cs" />
+    <Compile Include="API\APIsWin32.cs" />
+    <Compile Include="API\APIsWndProc.cs" />
+    <Compile Include="ControlHelper\YListView.cs" />
+    <Compile Include="DataStruct\DoubleLink.cs" />
+    <Compile Include="DataStruct\LinkList.cs" />
+    <Compile Include="GeometricHelper\SortHelper.cs" />
+    <Compile Include="Http\HttRequest.cs" />
+    <Compile Include="IOHelper\XMLHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="Utils.cs" />
+    <Compile Include="XMLHelper.cs" />
+    <Compile Include="YMath.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Ref\Acey.ExcelX.dll" />
+    <Content Include="Ref\Acey.ExcelX.xml" />
+    <Content Include="Ref\Aspose.Cells.dll" />
+    <Content Include="Ref\BarcodeLib.dll" />
+    <Content Include="Ref\BaseUtils.dll" />
+    <Content Include="Ref\common.dll" />
+    <Content Include="Ref\dyc.utils.dll" />
+    <Content Include="Ref\QRCodeProvider.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\YeahException\YeahException.csproj">
+      <Project>{8e8e2004-8733-46e1-aa2a-5223ff2103d9}</Project>
+      <Name>YeahException</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

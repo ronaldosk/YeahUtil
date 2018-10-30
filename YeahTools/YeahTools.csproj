@@ -135,10 +135,6 @@
       <Project>{8E8E2004-8733-46E1-AA2A-5223FF2103D9}</Project>
       <Name>YeahException</Name>
     </ProjectReference>
-    <ProjectReference Include="..\YUtils\YUtils.Core.csproj">
-      <Project>{a71537ef-d18b-4856-8d56-178f3add0cea}</Project>
-      <Name>YUtils.Core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Function\CodeGenerate\CodeGenerate.resx">
