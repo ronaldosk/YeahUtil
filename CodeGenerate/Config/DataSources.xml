@@ -2,9 +2,7 @@
 <dataSourceSection>
   <dataSources>
     <clear />
-    <dataSource name="test_db" connectionString="server=localhost;user id=root; password=ddd;database=codebuilder;Pooling=true"
-      exporter="MySQL5" />
-    <dataSource name="easyreport2" connectionString="server=localhost;user id=root;password=ddd;database=easyreport2;Pooling=true"
-      exporter="MySQL5" />
+    <dataSource name="SunRoseWMS" connectionString="Password=sa1234567;Persist Security Info=True;User ID=sa;Initial Catalog=SunRoseWMSDb;Data Source=."
+      exporter="SqlServer2008" />
   </dataSources>
 </dataSourceSection>

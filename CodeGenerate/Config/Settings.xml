@@ -9,12 +9,12 @@
     <language name="MyBatisMapper" alias="mybatisMapper" ext=".xml" isDynamic="false"/>
   </languages>
   <exporters>
-    <exporter name="PowerDesigner12" type="CodeBuilder.DataSource.Exporter.PowerDesigner12Exporter,CodeBuilder.Framework"/>
-    <exporter name="MySQL5" type="CodeBuilder.DataSource.Exporter.MySql5Exporter,CodeBuilder.Framework"/>
-    <exporter name="SqlServer2000" type="CodeBuilder.DataSource.Exporter.SqlServer2000Exporter,CodeBuilder.Framework"/>
-    <exporter name="SqlServer2005" type="CodeBuilder.DataSource.Exporter.SqlServer2005Exporter,CodeBuilder.Framework"/>
-    <exporter name="SqlServer2008" type="CodeBuilder.DataSource.Exporter.SqlServer2008Exporter,CodeBuilder.Framework"/>
-    <exporter name="Oracle8i" type="CodeBuilder.DataSource.Exporter.Oracle8iExporter,CodeBuilder.Framework"/>
+    <exporter name="PowerDesigner12" type="CodeBuilder.DataSource.Exporter.PowerDesigner12Exporter,YeahTools"/>
+    <exporter name="MySQL5" type="CodeBuilder.DataSource.Exporter.MySql5Exporter,YeahTools"/>
+    <exporter name="SqlServer2000" type="CodeBuilder.DataSource.Exporter.SqlServer2000Exporter,YeahTools"/>
+    <exporter name="SqlServer2005" type="CodeBuilder.DataSource.Exporter.SqlServer2005Exporter,YeahTools"/>
+    <exporter name="SqlServer2008" type="CodeBuilder.DataSource.Exporter.SqlServer2008Exporter,YeahTools"/>
+    <exporter name="Oracle8i" type="CodeBuilder.DataSource.Exporter.Oracle8iExporter,YeahTools"/>
   </exporters>
   <databases>
     <database name="MySQL5" typeMapping="mysql5"/>
@@ -37,10 +37,10 @@
     <pdmDatabase name="oracle11g" database="Oracle11g" />
   </pdmDatabases>
   <templateEngines>
-    <templateEngine name="NVelocity" ext=".nv" adapter="CodeBuilder.TemplateEngine.NVelocityEngineAdapter,CodeBuilder.Framework" />
+    <templateEngine name="NVelocity" ext=".nv" adapter="CodeBuilder.TemplateEngine.NVelocityEngineAdapter,YeahTools" />
   </templateEngines>
   <appSettings>
-    <add key="typeMapper" value="CodeBuilder.TypeMapping.DefaultTypeMapper,CodeBuilder.Framework" />
+    <add key="typeMapper" value="CodeBuilder.TypeMapping.DefaultTypeMapper,YeahTools" />
     <add key="onlineTemplateUrl" value="https://github.com/xianrendzw/CodeBuilder/tree/master/CodeBuilder.WinForm/Templates"/>
     <add key="helpUrl" value="https://github.com/xianrendzw/CodeBuilder/blob/master/README.MD"/>
     <add key="feedbackUrl" value="https://github.com/xianrendzw/CodeBuilder/issues"/>

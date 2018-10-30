@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CodeGenerate));
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -48,17 +50,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dbTreeView = new System.Windows.Forms.TreeView();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dbTreeView = new System.Windows.Forms.TreeView();
             this.dataSourceOptionsPage1 = new CodeBuilder.WinForm.UI.OptionsPages.DataSourceOptionsPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.treeNodeImageList = new System.Windows.Forms.ImageList(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -241,54 +246,59 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.comboBox1);
             this.groupBox3.Controls.Add(this.groupBox5);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.checkBox1);
             this.groupBox3.Location = new System.Drawing.Point(629, 18);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(883, 463);
+            this.groupBox3.Size = new System.Drawing.Size(883, 401);
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Option";
             // 
-            // dbTreeView
+            // groupBox5
             // 
-            this.dbTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dbTreeView.Location = new System.Drawing.Point(3, 17);
-            this.dbTreeView.Name = "dbTreeView";
-            this.dbTreeView.Size = new System.Drawing.Size(361, 341);
-            this.dbTreeView.TabIndex = 14;
+            this.groupBox5.Controls.Add(this.dataSourceOptionsPage1);
+            this.groupBox5.Location = new System.Drawing.Point(402, 55);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(464, 346);
+            this.groupBox5.TabIndex = 17;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "DataBase Setting";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(233, 16);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "LoadDB";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dbTreeView);
             this.groupBox4.Location = new System.Drawing.Point(29, 53);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(367, 361);
+            this.groupBox4.Size = new System.Drawing.Size(367, 348);
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "一览：<数据库表/视图>";
+            this.groupBox4.Text = "OverView：<Tables/View>";
             // 
-            // button2
+            // dbTreeView
             // 
-            this.button2.Location = new System.Drawing.Point(432, 70);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "加载数据库";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.dataSourceOptionsPage1);
-            this.groupBox5.Location = new System.Drawing.Point(412, 106);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(464, 346);
-            this.groupBox5.TabIndex = 17;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "数据库设置";
+            this.dbTreeView.CheckBoxes = true;
+            this.dbTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dbTreeView.ImageIndex = 0;
+            this.dbTreeView.ImageList = this.treeNodeImageList;
+            this.dbTreeView.Location = new System.Drawing.Point(3, 17);
+            this.dbTreeView.Name = "dbTreeView";
+            this.dbTreeView.SelectedImageIndex = 0;
+            this.dbTreeView.Size = new System.Drawing.Size(361, 328);
+            this.dbTreeView.TabIndex = 14;
             // 
             // dataSourceOptionsPage1
             // 
@@ -298,18 +308,45 @@
             this.dataSourceOptionsPage1.Size = new System.Drawing.Size(458, 326);
             this.dataSourceOptionsPage1.TabIndex = 0;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(314, 18);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 20);
+            this.comboBox1.TabIndex = 18;
+            // 
+            // treeNodeImageList
+            // 
+            this.treeNodeImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("treeNodeImageList.ImageStream")));
+            this.treeNodeImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.treeNodeImageList.Images.SetKeyName(0, "folderClosed.gif");
+            this.treeNodeImageList.Images.SetKeyName(1, "folderOpen.gif");
+            this.treeNodeImageList.Images.SetKeyName(2, "leaf.gif");
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1516, 24);
+            this.menuStrip1.TabIndex = 15;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // CodeGenerate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1516, 686);
+            this.ClientSize = new System.Drawing.Size(1516, 420);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "CodeGenerate";
             this.Text = "代码生成";
             this.groupBox2.ResumeLayout(false);
@@ -319,8 +356,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,5 +390,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox5;
         private CodeBuilder.WinForm.UI.OptionsPages.DataSourceOptionsPage dataSourceOptionsPage1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ImageList treeNodeImageList;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }

@@ -4,7 +4,6 @@ using System.IO;
 
 namespace CodeBuilder.Configuration
 {
-
     public class ConfigManager
     {
         private static System.Configuration.Configuration config;

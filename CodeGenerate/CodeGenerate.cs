@@ -1,4 +1,5 @@
-﻿using CodeBuilder.WinForm.UI;
+﻿using CodeBuilder.Configuration;
+using CodeBuilder.WinForm.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,11 @@ namespace CodeGenerate
             this.dgvView.Rows.Add();
             this.dgvView.Rows[1].Cells[0].Value = "CreateOrUpdateModal";
             this.dgvView.Rows[1].Cells[1].Value = 1;
-            
+
+            CombDataSourceItems();
+            this.comboBox1.SelectedIndex = 0;
+
+
         }
 
         #region BusinessName 属性
@@ -170,9 +175,33 @@ namespace CodeGenerate
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TreeNode rootNode = ExportModelHelper.Export("test2", this.dbTreeView);
+            this.dbTreeView.Nodes.Clear();
+            TreeNode rootNode = ExportModelHelper.Export(this.comboBox1.Text, this.dbTreeView);
             rootNode.ExpandAll();
             this.dbTreeView.SelectedNode = rootNode;
         }
+
+        public void ApplySettings()
+        {
+                try
+                {
+                    dataSourceOptionsPage1.ApplySettings();
+                }
+                catch (Exception ex)
+                {
+                    MessageBoxHelper.DisplayFailure(ex.Message);
+                }
+        }
+        private void CombDataSourceItems()
+        {
+            this.comboBox1.Items.Clear();
+
+            foreach (DataSourceElement dataSource in ConfigManager.DataSourceSection.DataSources)
+            {
+                this.comboBox1.Items.Add(dataSource.Name);
+                
+            }
+        }
+
     }
 }

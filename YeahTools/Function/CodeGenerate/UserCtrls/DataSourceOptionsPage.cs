@@ -70,6 +70,8 @@ namespace CodeBuilder.WinForm.UI.OptionsPages
             try
             {
                 this.datasourceListbox.Items.RemoveAt(this.datasourceListbox.SelectedIndex);
+
+                if (IsLoaded) ApplySettings();
             }
             catch (Exception ex)
             {
@@ -103,6 +105,8 @@ namespace CodeBuilder.WinForm.UI.OptionsPages
 
             this.listBoxItems.Add(name.ToLower(), new DataSourceItem(name, connString, exporter, DataSourceItemStatus.New));
             this.datasourceListbox.Items.Add(name);
+
+            if (IsLoaded) ApplySettings();
         }
 
         #endregion
