@@ -181,17 +181,7 @@ namespace CodeGenerate
             this.dbTreeView.SelectedNode = rootNode;
         }
 
-        public void ApplySettings()
-        {
-                try
-                {
-                    dataSourceOptionsPage1.ApplySettings();
-                }
-                catch (Exception ex)
-                {
-                    MessageBoxHelper.DisplayFailure(ex.Message);
-                }
-        }
+        
         private void CombDataSourceItems()
         {
             this.comboBox1.Items.Clear();
@@ -203,5 +193,17 @@ namespace CodeGenerate
             }
         }
 
+        private void dbTreeView_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            this.textBox1.Text = this.dbTreeView.SelectedNode.Text;
+            textBox1.Focus();
+            textBox1.SelectionStart = textBox1.Text.Length;
+        }
+
+        private void tsmi_DataSourceCfg_Click(object sender, EventArgs e)
+        {
+            DataSourceConfig dscfgdlg = new DataSourceConfig();
+            dscfgdlg.ShowDialog();
+        }
     }
 }
