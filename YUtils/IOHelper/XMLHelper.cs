@@ -6,7 +6,7 @@ using System.Linq;
 using System.Xml;
 using YeahException;
 
-namespace YeahTools
+namespace YUtils.Core
 {
     /// <summary>
     /// XMLHelper.对XMl文件的各种应用工具类

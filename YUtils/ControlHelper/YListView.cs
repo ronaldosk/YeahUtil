@@ -4,7 +4,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 
-namespace Yeah.Utils.Control
+namespace YUtils.Core.Control
 {
     #region Listview处理
     /// <summary>

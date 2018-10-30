@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace YeahTools.GeometricHelper
+namespace YUtils.Core.GeometricHelper
 {
     /// <summary>
     /// 几何对象集合数据的排序处理类
