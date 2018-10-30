@@ -118,24 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ConfigurationSectionLoadFailure" xml:space="preserve">
-    <value>配置节 {0} 加载失败</value>
+    <value>ConfigurationSection {0} load failure</value>
+    <comment>配置节 {0} 加载失败</comment>
   </data>
   <data name="LoadConfigurationFailure" xml:space="preserve">
-    <value>加载应用程序配置文件失败</value>
+    <value>Load configuration failure</value>
+    <comment>加载应用程序配置文件失败</comment>
   </data>
   <data name="NotFoundDataTypeItem" xml:space="preserve">
-    <value>没有找到 {0} {1} 数据类型项</value>
+    <value>Not Found {0} {1} Data Type Item</value>
+    <comment>没有找到 {0} {1} 数据类型项</comment>
   </data>
   <data name="NotFoundDataTypeMapping" xml:space="preserve">
-    <value>没有找到 {0} 到 {1} 的数据类型映射</value>
+    <value>Not Found {0} To {1} Data Type Mapping</value>
+    <comment>没有找到 {0} 到 {1} 的数据类型映射</comment>
   </data>
   <data name="NotFoundPdmDBMSExceptionMessage" xml:space="preserve">
-    <value>Powerdesigner物理数据模型未指定数据库管理系统(DBMS)</value>
+    <value>The powerdesigner physical data model(pdm) not specify DBMS.</value>
+    <comment>Powerdesigner物理数据模型未指定数据库管理系统(DBMS)</comment>
   </data>
   <data name="NotSupportDatabaseExceptionMessage" xml:space="preserve">
-    <value>对不起！该CodeBuilder版本不支持此数据库.</value>
+    <value>Sorry!CodeBuilder not support this database.</value>
+    <comment>对不起！该CodeBuilder版本不支持此数据库.</comment>
   </data>
   <data name="SaveConfigurationFailure" xml:space="preserve">
-    <value>保存应用程序配置文件失败</value>
+    <value>Save configuration failure</value>
+    <comment>保存应用程序配置文件失败</comment>
   </data>
 </root>

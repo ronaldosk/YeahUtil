@@ -28,9 +28,21 @@
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.12.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\YUtils\Ref\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NVelocity">
+      <HintPath>..\YUtils\Ref\NVelocity.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess">
+      <HintPath>..\YUtils\Ref\Oracle.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
@@ -38,16 +50,87 @@
   <ItemGroup>
     <Compile Include="ControlHelper\YListView.cs" />
     <Compile Include="EMSHelper.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\ConfigManager.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\DataSource\DataSourceElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\DataSource\DataSourceElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\DataSource\DataSourceSection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Generation\GenerationSettings.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Options\OptionElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Options\OptionElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Options\OptionSection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\AppSettingsElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\AppSettingsElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\DatabaseElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\DatabaseElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\ExporterElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\ExporterElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\LanguageElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\LanguageElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\PdmDatabaseElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\PdmDatabaseElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\SettingsSection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\TemplateEngineElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Settings\TemplateEngineElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Template\TemplateElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Template\TemplateElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\Template\TemplateSection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\TypeMapping\TypeElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\TypeMapping\TypeElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\TypeMapping\TypeMappingElement.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\TypeMapping\TypeMappingElementCollection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Configuration\TypeMapping\TypeMappingSection.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exceptions\NotFoundPdmDBMSException.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exceptions\NotSupportDatabaseException.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exporter\BaseExporter.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exporter\IExporter.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exporter\MySQL\MySql5Exporter.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exporter\Oracle\Oracle8iExporter.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exporter\Oracle\OracleHelper.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exporter\PowerDesigner\PowerDesigner12Exporter.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exporter\SQLServer\SqlHelper.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exporter\SQLServer\SqlServer2000Exporter.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exporter\SQLServer\SqlServer2005Exporter.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Exporter\SQLServer\SqlServer2008Exporter.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\BaseTable.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\Column.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\Columns.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\IMetaData.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\Model.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\Table.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\Tables.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\View.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\Views.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\TemplateEngine\Adapters\NVelocityEngineAdapter.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\TemplateEngine\ITemplateEngine.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\TemplateEngine\TemplateData.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\TemplateEngine\TemplateDataBuilder.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\TypeMapping\DefaultTypeMapper.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\TypeMapping\ITypeMapper.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\TypeMapping\LanguageType.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\TypeMapping\TypeMapperFactory.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Util\AssemblyHelper.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Util\ConvertHelper.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Util\Logging\InternalTrace.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Util\Logging\InternalTraceWriter.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Util\Logging\Logger.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Util\PathHelper.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Util\SerializeHelper.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\Util\StringExtension.cs" />
     <Compile Include="GeometricHelper\SortHelper.cs" />
     <Compile Include="GlobalCommon.cs" />
-    <Compile Include="HelperForm\CodeGenerate.cs">
+    <Compile Include="Function\CodeGenerate\CodeGenerate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HelperForm\CodeGenerate.Designer.cs">
+    <Compile Include="Function\CodeGenerate\CodeGenerate.Designer.cs">
       <DependentUpon>CodeGenerate.cs</DependentUpon>
     </Compile>
     <Compile Include="IOHelper\XMLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RadanHelper\RadanObj.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -61,9 +144,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="HelperForm\CodeGenerate.resx">
+    <EmbeddedResource Include="Function\CodeGenerate\CodeGenerate.resx">
       <DependentUpon>CodeGenerate.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="HelperForm\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

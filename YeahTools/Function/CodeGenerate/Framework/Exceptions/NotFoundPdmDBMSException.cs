@@ -5,12 +5,12 @@ using System.Text;
 
 namespace CodeBuilder.Exceptions
 {
-    using Framework.Properties;
+    using YeahTools.Properties;
 
     public class NotFoundPdmDBMSException : Exception
     {
         public NotFoundPdmDBMSException()
-            : this(Resource.NotFoundPdmDBMSExceptionMessage)
+            : this(Resources.NotFoundPdmDBMSExceptionMessage)
         {
         }
 

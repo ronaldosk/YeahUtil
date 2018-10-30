@@ -7,7 +7,7 @@ namespace YeahTools.EMS
 {
 	public class ProduceValues
 	{
-		public string ClassName {get{ return "ProduceValues";}}
+        public string ClassName {get{ return "ProduceValues";}}
 		public ProduceValues()
 		{
 		}

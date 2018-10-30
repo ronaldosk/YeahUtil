@@ -6,7 +6,7 @@ using System.Text;
 namespace CodeBuilder.TypeMapping
 {
     using Configuration;
-    using Framework.Properties;
+    using YeahTools.Properties;
     using Util;
 
     public class DefaultTypeMapper : ITypeMapper
@@ -23,7 +23,7 @@ namespace CodeBuilder.TypeMapping
 
             if (mappings[name] == null)
             {
-                logger.Warning(string.Format(Resource.NotFoundDataTypeMapping, database, language));
+                logger.Warning(string.Format(Resources.NotFoundDataTypeMapping, database, language));
                 return null;
                 //throw new ArgumentNullException(displayName, string.Format("Not Found {0} To {1} Data Type Mapping", database, language));
             }
@@ -32,7 +32,7 @@ namespace CodeBuilder.TypeMapping
             if (mappings[name].Types[dbDataTypeName] == null)
             {
                 dbType = mappings[name].Types["default"];
-                logger.Warning(string.Format(Resource.NotFoundDataTypeItem, database, dbDataTypeName));
+                logger.Warning(string.Format(YeahTools.Properties.Resources.NotFoundDataTypeItem, database, dbDataTypeName));
                 //throw new ArgumentNullException(displayName, string.Format("Not Found {0} {1} Data Type Item", database, dbDataTypeName));
             }
             else

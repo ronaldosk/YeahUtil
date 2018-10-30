@@ -5,12 +5,12 @@ using System.Text;
 
 namespace CodeBuilder.Exceptions
 {
-    using Framework.Properties;
+    using YeahTools.Properties;
 
     public class NotSupportDatabaseException : Exception
     {
         public NotSupportDatabaseException()
-            : this(Resource.NotSupportDatabaseExceptionMessage)
+            : this(Resources.NotSupportDatabaseExceptionMessage)
         {
         }
 

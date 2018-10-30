@@ -8,8 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using YeahTools;
 using YeahTools.GeometricHelper;
-using YeahTools.HelperForm;
 using YeahAlgorithms.Core;
+using YeahTools.Function.CodeGenerate;
 
 namespace Test
 {

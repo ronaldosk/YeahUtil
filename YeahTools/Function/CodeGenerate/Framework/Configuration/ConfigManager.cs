@@ -4,7 +4,6 @@ using System.IO;
 
 namespace CodeBuilder.Configuration
 {
-    using Framework.Properties;
 
     public class ConfigManager
     {
@@ -189,7 +188,7 @@ namespace CodeBuilder.Configuration
             }
             catch (Exception ex)
             {
-                throw new ConfigurationErrorsException(Resource.SaveConfigurationFailure, ex);
+                throw new ConfigurationErrorsException(YeahTools.Properties.Resources.SaveConfigurationFailure, ex);
             }
         }
 
@@ -205,7 +204,7 @@ namespace CodeBuilder.Configuration
             }
             catch (Exception ex)
             {
-                throw new ConfigurationErrorsException(Resource.LoadConfigurationFailure, ex);
+                throw new ConfigurationErrorsException(YeahTools.Properties.Resources.LoadConfigurationFailure, ex);
             }
         }
 
@@ -217,7 +216,7 @@ namespace CodeBuilder.Configuration
             }
             catch (Exception ex)
             {
-                throw new ConfigurationErrorsException(string.Format(Resource.ConfigurationSectionLoadFailure, name), ex);
+                throw new ConfigurationErrorsException(string.Format(YeahTools.Properties.Resources.ConfigurationSectionLoadFailure, name), ex);
             }
         }
 

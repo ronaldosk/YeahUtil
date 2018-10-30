@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using YUtils;
 
-namespace YeahTools.HelperForm
+namespace YeahTools.Function.CodeGenerate
 {
     public partial class CodeGenerate : Form
     {

@@ -1,4 +1,4 @@
-﻿namespace YeahTools.HelperForm
+﻿namespace YeahTools.Function.CodeGenerate
 {
     partial class CodeGenerate
     {
