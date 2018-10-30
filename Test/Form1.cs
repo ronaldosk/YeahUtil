@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using YeahTools;
-using YeahTools.GeometricHelper;
 using YeahAlgorithms.Core;
-using YeahTools.Function.CodeGenerate;
+using YUtils.Core.GeometricHelper;
+using YUtils.Core;
 
 namespace Test
 {
@@ -67,13 +67,7 @@ namespace Test
             //}
             MessageBox.Show(outMsg);
         }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            CodeGenerate codg = new CodeGenerate();
-            if (codg.ShowDialog() == DialogResult.OK)
-                return;
-        }
+        
 
         private void button5_Click(object sender, EventArgs e)
         {

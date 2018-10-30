@@ -119,13 +119,19 @@
     <Compile Include="Function\CodeGenerate\UI\Helpers\GenerationHelper.cs" />
     <Compile Include="Function\CodeGenerate\UI\Helpers\MessageBoxHelper.cs" />
     <Compile Include="Function\CodeGenerate\UI\ModelManager.cs" />
+    <Compile Include="Function\CodeGenerate\UserCtrls\BaseOptionsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Function\CodeGenerate\UserCtrls\BaseOptionsPage.designer.cs">
+      <DependentUpon>BaseOptionsPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\CodeGenerate\UserCtrls\DataSourceOptionsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Function\CodeGenerate\UserCtrls\DataSourceOptionsPage.designer.cs">
+      <DependentUpon>DataSourceOptionsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalCommon.cs" />
-    <Compile Include="Function\CodeGenerate\CodeGenerate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Function\CodeGenerate\CodeGenerate.Designer.cs">
-      <DependentUpon>CodeGenerate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -145,14 +151,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Function\CodeGenerate\CodeGenerate.resx">
-      <DependentUpon>CodeGenerate.cs</DependentUpon>
+    <EmbeddedResource Include="Function\CodeGenerate\UserCtrls\BaseOptionsPage.resx">
+      <DependentUpon>BaseOptionsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\CodeGenerate\UserCtrls\BaseOptionsPage.zh-CN.resx">
+      <DependentUpon>BaseOptionsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\CodeGenerate\UserCtrls\DataSourceOptionsPage.resx">
+      <DependentUpon>DataSourceOptionsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\CodeGenerate\UserCtrls\DataSourceOptionsPage.zh-CN.resx">
+      <DependentUpon>DataSourceOptionsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

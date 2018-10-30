@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YUtils.Core", "YUtils.Core\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ref", "Ref\Ref.csproj", "{ECA26B05-99B3-405B-A661-AE4C4B221F7E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeGenerate", "CodeGenerate\CodeGenerate.csproj", "{F1C54FB3-76E9-4850-B912-AAD6C00E2320}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{ECA26B05-99B3-405B-A661-AE4C4B221F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECA26B05-99B3-405B-A661-AE4C4B221F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECA26B05-99B3-405B-A661-AE4C4B221F7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C54FB3-76E9-4850-B912-AAD6C00E2320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C54FB3-76E9-4850-B912-AAD6C00E2320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C54FB3-76E9-4850-B912-AAD6C00E2320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C54FB3-76E9-4850-B912-AAD6C00E2320}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

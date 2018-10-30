@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodeBuilder.WinForm.UI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using YUtils;
 
-namespace YeahTools.Function.CodeGenerate
+namespace CodeGenerate
 {
     public partial class CodeGenerate : Form
     {
@@ -165,6 +166,13 @@ namespace YeahTools.Function.CodeGenerate
             this.textBox4.Text = ServiceName;
             this.textBox7.Text = ViewFolder;
             this.textBox1.Text = BusinessName;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TreeNode rootNode = ExportModelHelper.Export("test2", this.dbTreeView);
+            rootNode.ExpandAll();
+            this.dbTreeView.SelectedNode = rootNode;
         }
     }
 }
