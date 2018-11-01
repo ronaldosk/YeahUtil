@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace CodeBuilder.Util
+namespace YUtils.Core
 {
     public class PathHelper
     {

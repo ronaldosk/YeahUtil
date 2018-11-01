@@ -107,14 +107,9 @@
     <Compile Include="Function\CodeGenerate\Framework\TypeMapping\ITypeMapper.cs" />
     <Compile Include="Function\CodeGenerate\Framework\TypeMapping\LanguageType.cs" />
     <Compile Include="Function\CodeGenerate\Framework\TypeMapping\TypeMapperFactory.cs" />
-    <Compile Include="Function\CodeGenerate\Framework\Util\AssemblyHelper.cs" />
-    <Compile Include="Function\CodeGenerate\Framework\Util\ConvertHelper.cs" />
     <Compile Include="Function\CodeGenerate\Framework\Util\Logging\InternalTrace.cs" />
     <Compile Include="Function\CodeGenerate\Framework\Util\Logging\InternalTraceWriter.cs" />
     <Compile Include="Function\CodeGenerate\Framework\Util\Logging\Logger.cs" />
-    <Compile Include="Function\CodeGenerate\Framework\Util\PathHelper.cs" />
-    <Compile Include="Function\CodeGenerate\Framework\Util\SerializeHelper.cs" />
-    <Compile Include="Function\CodeGenerate\Framework\Util\StringExtension.cs" />
     <Compile Include="Function\CodeGenerate\UI\Helpers\ExportModelHelper.cs" />
     <Compile Include="Function\CodeGenerate\UI\Helpers\GenerationHelper.cs" />
     <Compile Include="Function\CodeGenerate\UI\Helpers\MessageBoxHelper.cs" />

@@ -9,6 +9,8 @@ namespace CodeBuilder.TemplateEngine
     using PhysicalDataModel;
     using TypeMapping;
     using Util;
+    using YUtils;
+    using YUtils.Core;
 
     public class TemplateDataBuilder
     {

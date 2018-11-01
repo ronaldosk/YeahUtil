@@ -404,6 +404,7 @@
             this.textBox1.Size = new System.Drawing.Size(301, 21);
             this.textBox1.TabIndex = 18;
             this.textBox1.Text = "Contract";
+            this.textBox1.Validated += new System.EventHandler(this.textBox1_Validated);
             // 
             // label1
             // 

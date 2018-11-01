@@ -6,6 +6,8 @@ namespace CodeBuilder.DataSource.Exporter
 {
     using PhysicalDataModel;
     using Util;
+    using YUtils;
+    using YUtils.Core;
 
     public class MySql5Exporter : BaseExporter, IExporter
     {

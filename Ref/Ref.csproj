@@ -51,5 +51,8 @@
     <Content Include="Ref\NVelocity.xml" />
     <Content Include="Ref\Oracle.DataAccess.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="IconLib\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

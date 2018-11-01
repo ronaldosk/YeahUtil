@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 
-namespace CodeBuilder.Util
+namespace YUtils.Core
 {
     public class SerializeHelper
     {

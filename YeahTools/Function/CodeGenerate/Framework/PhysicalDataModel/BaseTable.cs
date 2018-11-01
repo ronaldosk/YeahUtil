@@ -6,6 +6,7 @@ using System.Text;
 namespace CodeBuilder.PhysicalDataModel
 {
     using Util;
+    using YUtils;
 
     public abstract class BaseTable : IMetaData
     {

@@ -8,6 +8,7 @@ namespace CodeBuilder.TemplateEngine
     using Util;
     using Configuration;
     using PhysicalDataModel;
+    using YUtils;
 
     public class TemplateData
     {

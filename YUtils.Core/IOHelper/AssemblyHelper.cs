@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace CodeBuilder.Util
+namespace YUtils.Core
 {
     public class AssemblyHelper
     {

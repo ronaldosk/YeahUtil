@@ -10,6 +10,7 @@ using NVelocity.Util.Introspection;
 namespace CodeBuilder.TemplateEngine
 {
     using Util;
+    using YUtils;
 
     public class NVelocityEngineAdapter : ITemplateEngine
     {
@@ -65,7 +66,7 @@ namespace CodeBuilder.TemplateEngine
             if (instance == null)
                 throw new ArgumentNullException("instance");
 
-            _extensionTypes = new Type[] { typeof(StringExtension) };
+            _extensionTypes = new Type[] { typeof(StringExtensions) };
             _instance = instance;
             _instanceType = _instance.GetType();
         }

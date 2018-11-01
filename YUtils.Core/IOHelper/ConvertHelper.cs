@@ -1,6 +1,6 @@
 using System;
 
-namespace CodeBuilder.Util
+namespace YUtils.Core
 {
     public static class ConvertHelper
     {
