@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using YUtils.DataStruct;
 
 namespace YUtils
@@ -54,6 +55,27 @@ namespace YUtils
             
 
             return outStr;
+        }
+
+        public static int GetASCIILength(this string str)
+        {
+            if (str.Length == 0)
+                return 0;
+            ASCIIEncoding ascii = new ASCIIEncoding();
+            int tempLen = 0;
+            byte[] s = ascii.GetBytes(str);
+            for (int i = 0; i < s.Length; i++)
+            {
+                if ((int)s[i] == 63)
+                {
+                    tempLen += 2;
+                }
+                else
+                {
+                    tempLen += 1;
+                }
+            }
+            return tempLen;
         }
     }
 

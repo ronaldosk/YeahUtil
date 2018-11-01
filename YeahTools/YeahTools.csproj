@@ -131,6 +131,24 @@
     <Compile Include="Function\CodeGenerate\UserCtrls\DataSourceOptionsPage.designer.cs">
       <DependentUpon>DataSourceOptionsPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function\UserControls\LabelCombox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Function\UserControls\LabelCombox.Designer.cs">
+      <DependentUpon>LabelCombox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\UserControls\LabelTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Function\UserControls\LabelTextBox.Designer.cs">
+      <DependentUpon>LabelTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\UserControls\QueryDataGridView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Function\UserControls\QueryDataGridView.Designer.cs">
+      <DependentUpon>QueryDataGridView.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalCommon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -162,6 +180,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Function\CodeGenerate\UserCtrls\DataSourceOptionsPage.zh-CN.resx">
       <DependentUpon>DataSourceOptionsPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\UserControls\LabelCombox.resx">
+      <DependentUpon>LabelCombox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\UserControls\LabelTextBox.resx">
+      <DependentUpon>LabelTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Function\UserControls\QueryDataGridView.resx">
+      <DependentUpon>QueryDataGridView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
