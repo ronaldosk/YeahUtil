@@ -61,12 +61,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Template\Core\Task.entity" />
+    <None Include="Template\Core\BusinessName.entity" />
     <None Include="Template\Application\Dtos\CreateTaskInput.create" />
     <None Include="Template\Application\Dtos\TaskListDto.dto" />
     <Compile Include="Template\Const.cs" />
-    <None Include="Template\Application\ITaskAppService.isvr" />
-    <None Include="Template\Application\TaskAppService.svr" />
+    <None Include="Template\Application\IBusinessNameAppService.isvr" />
+    <None Include="Template\Application\BusinessNameAppService.svr" />
     <EmbeddedResource Include="CodeGenerate.resx">
       <DependentUpon>CodeGenerate.cs</DependentUpon>
     </EmbeddedResource>
