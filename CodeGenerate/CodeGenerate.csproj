@@ -64,8 +64,8 @@
     <Compile Include="Template\Application\APP\Dtos\CreateTaskInput.cs" />
     <Compile Include="Template\Application\APP\Dtos\GetAllTasksInput.cs" />
     <Compile Include="Template\Application\APP\Dtos\TaskListDto.cs" />
-    <Compile Include="Template\Application\APP\ITaskAppService.cs" />
-    <Compile Include="Template\Application\APP\TaskAppService.cs" />
+    <None Include="Template\Application\APP\ITaskAppService.isvr" />
+    <None Include="Template\Application\APP\TaskAppService.svr" />
     <EmbeddedResource Include="CodeGenerate.resx">
       <DependentUpon>CodeGenerate.cs</DependentUpon>
     </EmbeddedResource>

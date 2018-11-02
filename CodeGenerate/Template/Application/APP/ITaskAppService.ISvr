@@ -9,6 +9,6 @@ namespace [AppName].[BusinessName]s
     {
         Task<ListResultDto<[BusinessName]ListDto>> GetAll(GetAll[BusinessName]sInput input);
 
-        System.Threading.Tasks.Task Create(Create[BusinessName] Input input);
+        System.Threading.Tasks.Task Create(Create[BusinessName]Input input);
     }
 }
