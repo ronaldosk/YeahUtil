@@ -61,11 +61,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Template\Application\APP\Dtos\CreateTaskInput.create" />
-    <None Include="Template\Application\APP\Dtos\TaskListDto.dto" />
+    <None Include="Template\Core\Task.entity" />
+    <None Include="Template\Application\Dtos\CreateTaskInput.create" />
+    <None Include="Template\Application\Dtos\TaskListDto.dto" />
     <Compile Include="Template\Const.cs" />
-    <None Include="Template\Application\APP\ITaskAppService.isvr" />
-    <None Include="Template\Application\APP\TaskAppService.svr" />
+    <None Include="Template\Application\ITaskAppService.isvr" />
+    <None Include="Template\Application\TaskAppService.svr" />
     <EmbeddedResource Include="CodeGenerate.resx">
       <DependentUpon>CodeGenerate.cs</DependentUpon>
     </EmbeddedResource>
@@ -123,6 +124,8 @@
       <Name>YUtils.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Template\EntityFrameworCore\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
