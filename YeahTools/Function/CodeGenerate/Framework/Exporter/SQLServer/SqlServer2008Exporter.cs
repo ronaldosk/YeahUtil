@@ -158,7 +158,23 @@ namespace CodeBuilder.DataSource.Exporter
 
             return columns;
         }
+        void CreateLocalTable(Table table, string connectionString)
+        {
+            StringBuilder sqlBuilder = new StringBuilder();
+            sqlBuilder.Append("use db_sqlserver");
+            sqlBuilder.Append("go");
+            sqlBuilder.AppendFormat("create table #{0}",table.Id);
+            sqlBuilder.Append("(");
+            foreach (var col in table.Columns)
+                sqlBuilder.AppendFormat("{0}  {1},", col.Value.Id, col.Value.DataType);
+            sqlBuilder.Append(")");
+            SqlHelper.ExecuteNonQuery(connectionString, CommandType.Text, sqlBuilder.ToString());
+        }
 
+        void CreateGlobalTable()
+        {
+
+        }
         #endregion
     }
 }

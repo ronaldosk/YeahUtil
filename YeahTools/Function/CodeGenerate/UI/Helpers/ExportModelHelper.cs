@@ -39,7 +39,7 @@ namespace CodeBuilder.WinForm.UI
         {
             Model model = exporter.Export(connectionString);
 
-            rootNode.Tag = model.Database;
+            rootNode.Tag = model;//model.Database
             AddBranchToTree(model, rootNode);
 
             ModelManager.Add(rootNode.Index.ToString(), model);
@@ -71,7 +71,7 @@ namespace CodeBuilder.WinForm.UI
             foreach (BaseTable baseTable in objects.Values)
             {
                 TreeNode newNode = new TreeNode();
-                newNode.Tag = baseTable.Id;
+                newNode.Tag = baseTable;// baseTable.Id;
                 newNode.Text = baseTable.DisplayName;
                 newNode.ToolTipText = baseTable.DisplayName;
                 newNode.ImageIndex = 2;

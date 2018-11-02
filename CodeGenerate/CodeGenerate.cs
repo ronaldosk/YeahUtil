@@ -1,4 +1,5 @@
 ﻿using CodeBuilder.Configuration;
+using CodeBuilder.PhysicalDataModel;
 using CodeBuilder.WinForm.UI;
 using System;
 using System.Collections.Generic;
@@ -196,8 +197,47 @@ namespace CodeGenerate
         private void dbTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             this.textBox1.Text = this.dbTreeView.SelectedNode.Text;
+            toolStripStatusLabel1.Text = this.textBox1.Text;
             textBox1.Focus();
             textBox1.SelectionStart = textBox1.Text.Length;
+            Reflesh_dgvColms();
+            Reflesh_dgvIndexs();
+        }
+
+        void Reflesh_dgvColms()
+        {
+            if (this.dbTreeView.SelectedNode.Tag is BaseTable)
+            {
+                BaseTable cols = this.dbTreeView.SelectedNode.Tag as BaseTable;
+                dgvColms.Rows.Clear();
+                foreach (var col in cols.Columns)
+                {
+                    int index = dgvColms.Rows.Add();
+                    dgvColms.Rows[index].Cells[2].Value = col.Value.DisplayName;
+                    dgvColms.Rows[index].Cells[3].Value = col.Value.Id;
+                    dgvColms.Rows[index].Cells[4].Value = col.Value.Comment;
+                    dgvColms.Rows[index].Cells[5].Value = col.Value.DataType;
+                    dgvColms.Rows[index].Cells[6].Value = col.Value.DataType == "nvarchar" ? col.Value.Length / 2 : col.Value.Length;
+                    dgvColms.Rows[index].Cells[7].Value = (col.Value.DataType == "float" || col.Value.DataType == "double") ? "2" : "";
+                    dgvColms.Rows[index].Cells[8].Value = col.Value.IsNullable ? "N" : "Y";
+                    dgvColms.Rows[index].Cells[9].Value = "Admin";
+
+                }
+            }
+        }
+
+        void Reflesh_dgvIndexs()
+        {
+            if (this.dbTreeView.SelectedNode.Tag is BaseTable)
+            {
+                BaseTable cols = this.dbTreeView.SelectedNode.Tag as BaseTable;
+                dgvIndexs.Rows.Clear();
+                foreach (var col in cols.Columns)
+                {
+                    int index = dgvIndexs.Rows.Add();
+                    dgvIndexs.Rows[index].Cells[1].Value = col.Value.DisplayName;
+                }
+            }
         }
 
         private void tsmi_DataSourceCfg_Click(object sender, EventArgs e)
