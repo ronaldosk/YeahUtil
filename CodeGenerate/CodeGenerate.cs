@@ -240,7 +240,7 @@ namespace CodeGenerate
         {
             string businessname = this.dbTreeView.SelectedNode.Text;
             if (checkBox2.Checked)
-                businessname.IgnorePrefix(this.textBox2.Text, ',', '，');
+                businessname.IgnorePrefix(this.prefixTxtBox.Text, ',', '，');
             this.textBox1.Text = businessname;
             toolStripStatusLabel1.Text = this.textBox1.Text;
             textBox1.Focus();
@@ -254,6 +254,7 @@ namespace CodeGenerate
             if (this.dbTreeView.SelectedNode.Tag is BaseTable)
             {
                 BaseTable cols = this.dbTreeView.SelectedNode.Tag as BaseTable;
+                this.textBox1.Tag = cols;//划重点，关联
                 dgvColms.Rows.Clear();
                 foreach (var col in cols.Columns)
                 {
@@ -301,23 +302,52 @@ namespace CodeGenerate
 
             string entityfile = Const.OutputPath + Path.Combine(EntityFolder, string.Format("{0}.cs", BusinessName));
 
-            string[] tempString = { "[BusinessName]", "[businessName]", "[AppName]" }, newString = { BusinessName, BusinessName.LowerCamelCaseName(), "SunRoseWMS" };
+            string[] tempString = { "[BusinessName]", "[businessName]", "[AppName]" }, newString = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
             CreateFileByReplaceKeyFromTemplateFile(tempString, newString, Const.pathAppServiceFile, appserver);
 
-            string[] tempString2 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString2 = { BusinessName, BusinessName.LowerCamelCaseName(), "SunRoseWMS" };
+            string[] tempString2 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString2 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
             CreateFileByReplaceKeyFromTemplateFile(tempString2, newString2, Const.pathIAppServiceFile, iappserver);
 
 
-            string[] tempString3 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString3 = { BusinessName, BusinessName.LowerCamelCaseName(), "SunRoseWMS" };
+            string[] tempString3 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString3 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
             CreateFileByReplaceKeyFromTemplateFile(tempString3, newString3, Const.pathDtoListFile, dtolist);
 
-            //string[] tempString4 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString4 = { BusinessName, BusinessName.LowerCamelCaseName(), "SunRoseWMS" };
+            //string[] tempString4 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString4 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
             //CreateFileByReplaceKeyFromTemplateFile(tempString4, newString4, Const.pathCreateDtoFile, dtolist);
 
-            string[] tempString5 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString5 = { BusinessName, BusinessName.LowerCamelCaseName(), "SunRoseWMS" };
+            string[] tempString5 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString5 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
             CreateFileByReplaceKeyFromTemplateFile(tempString5, newString5, Const.pathEntityFile, entityfile);
 
             DirectoryHelper.Open(Const.OutputPath);
+
+            GenerationParameter parameter = new GenerationParameter(
+                ModelManager.Clone(),
+                GenerationHelper.GetGenerationObjects(this.dbTreeView),
+                this.GetGenerationSettings());
+            try
+            {
+                this.codeGeneration.GenerateAsync(parameter, Guid.NewGuid().ToString());
+            }
+            catch (Exception ex)
+            {
+                //logger.Error(Resources.GenerateFailure, ex);
+            }
+        }
+
+        string language = "C#";
+        string templateEngine = "NVelocity";
+        string packagename = "SunRoseWMS";
+        string author = "Ronaldosk Ye";
+        string version = "1.0";
+        string codeFileEncoding = "UTF-8";
+
+
+        private GenerationSettings GetGenerationSettings()
+        {
+            GenerationSettings settings = new GenerationSettings(language,templateEngine, packagename, this.prefixTxtBox.Text,author, version,
+                new string[] { "default" } ,
+                codeFileEncoding, this.checkBox2.Checked, this.checkBox1.Checked);
+            return settings;
         }
 
         private void CreateFileByReplaceKeyFromTemplateFile(string[] tempString, string[] newString, string templateFile, string destinationFile)

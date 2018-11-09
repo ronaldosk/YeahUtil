@@ -110,6 +110,15 @@
     <Compile Include="Function\CodeGenerate\Framework\Util\Logging\InternalTrace.cs" />
     <Compile Include="Function\CodeGenerate\Framework\Util\Logging\InternalTraceWriter.cs" />
     <Compile Include="Function\CodeGenerate\Framework\Util\Logging\Logger.cs" />
+    <Compile Include="Function\CodeGenerate\UI\Components\CodeGeneration.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Function\CodeGenerate\UI\Components\CodeGeneration.Designer.cs">
+      <DependentUpon>CodeGeneration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Function\CodeGenerate\UI\Components\GenerationCompletedEventHandler.cs" />
+    <Compile Include="Function\CodeGenerate\UI\Components\GenerationParameter.cs" />
+    <Compile Include="Function\CodeGenerate\UI\Components\GenerationProgressChangedEventHandler.cs" />
     <Compile Include="Function\CodeGenerate\UI\Helpers\ExportModelHelper.cs" />
     <Compile Include="Function\CodeGenerate\UI\Helpers\GenerationHelper.cs" />
     <Compile Include="Function\CodeGenerate\UI\Helpers\MessageBoxHelper.cs" />

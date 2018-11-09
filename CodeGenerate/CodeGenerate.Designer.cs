@@ -110,8 +110,13 @@
             this.tbtableName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.prefixTxtBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.codeGeneration = new CodeBuilder.WinForm.UI.CodeGeneration(this.components);
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -134,6 +139,7 @@
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.toolStrip4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // checkBox1
@@ -344,21 +350,19 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.prefixTxtBox);
             this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Location = new System.Drawing.Point(425, 74);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(591, 168);
+            this.groupBox1.Size = new System.Drawing.Size(591, 57);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Business Option";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(116, 129);
+            this.textBox4.Location = new System.Drawing.Point(536, 221);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(458, 21);
             this.textBox4.TabIndex = 5;
@@ -367,7 +371,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 132);
+            this.label4.Location = new System.Drawing.Point(429, 224);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 12);
             this.label4.TabIndex = 4;
@@ -868,13 +872,13 @@
             this.checkBox2.Text = "Ignore Prefix";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // prefixTxtBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(312, 18);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(144, 21);
-            this.textBox2.TabIndex = 15;
-            this.textBox2.Text = "t,v,T,V,ts";
+            this.prefixTxtBox.Location = new System.Drawing.Point(312, 18);
+            this.prefixTxtBox.Name = "prefixTxtBox";
+            this.prefixTxtBox.Size = new System.Drawing.Size(144, 21);
+            this.prefixTxtBox.TabIndex = 15;
+            this.prefixTxtBox.Text = "t,v,T,V";
             // 
             // label2
             // 
@@ -885,14 +889,62 @@
             this.label2.TabIndex = 16;
             this.label2.Text = "(separated by commas)";
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.checkBox5);
+            this.groupBox6.Controls.Add(this.checkBox4);
+            this.groupBox6.Controls.Add(this.checkBox3);
+            this.groupBox6.Location = new System.Drawing.Point(425, 137);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(591, 51);
+            this.groupBox6.TabIndex = 23;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "ORM Option (Plan...)";
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(11, 21);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(60, 16);
+            this.checkBox3.TabIndex = 0;
+            this.checkBox3.Text = "Dapper";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(87, 21);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(90, 16);
+            this.checkBox4.TabIndex = 0;
+            this.checkBox4.Text = "Nhibernate ";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Checked = true;
+            this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox5.Enabled = false;
+            this.checkBox5.Location = new System.Drawing.Point(183, 21);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(36, 16);
+            this.checkBox5.TabIndex = 0;
+            this.checkBox5.Text = "EF";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
             // CodeGenerate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 853);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -937,6 +989,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.toolStrip4.ResumeLayout(false);
             this.toolStrip4.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1022,8 +1076,13 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox prefixTxtBox;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private CodeBuilder.WinForm.UI.CodeGeneration codeGeneration;
     }
 }

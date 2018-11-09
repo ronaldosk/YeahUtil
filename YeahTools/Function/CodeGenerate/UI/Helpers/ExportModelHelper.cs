@@ -78,7 +78,7 @@ namespace CodeBuilder.WinForm.UI
                 newNode.SelectedImageIndex = 2;
                 childNode.Nodes.Add(newNode);
             }
-            parentNode.Nodes.Add(childNode);
+            parentNode.Nodes.Add(childNode);// Password = sa1234567; Persist Security Info = True; User ID = sa; Initial Catalog = SunRoseWMSDb; Data Source =.
         }
     }
 }
