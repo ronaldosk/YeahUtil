@@ -116,8 +116,8 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.codeGeneration = new CodeBuilder.WinForm.UI.CodeGeneration(this.components);
             this.genProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.codeGeneration = new CodeBuilder.WinForm.UI.CodeGeneration(this.components);
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -936,14 +936,14 @@
             this.checkBox5.Text = "EF";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
-            // codeGeneration
-            // 
-            this.codeGeneration.ProgressChanged += new CodeBuilder.WinForm.UI.GenerationProgressChangedEventHandler(this.codeGeneration_ProgressChanged);
-            // 
             // genProgressBar
             // 
             this.genProgressBar.Name = "genProgressBar";
-            this.genProgressBar.Size = new System.Drawing.Size(100, 16);
+            this.genProgressBar.Size = new System.Drawing.Size(400, 16);
+            // 
+            // codeGeneration
+            // 
+            this.codeGeneration.ProgressChanged += new CodeBuilder.WinForm.UI.GenerationProgressChangedEventHandler(this.codeGeneration_ProgressChanged);
             // 
             // CodeGenerate
             // 

@@ -4,13 +4,8 @@ using CodeBuilder.WinForm.UI;
 using CodeGenerate.Template;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using YUtils;
 using YUtils.Core;
@@ -240,10 +235,10 @@ namespace CodeGenerate
         private void dbTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             string businessname = this.dbTreeView.SelectedNode.Text;
+            toolStripStatusLabel1.Text = businessname;
             if (checkBox2.Checked)
-                businessname.IgnorePrefix(this.prefixTxtBox.Text, ',', '，');
+                businessname = businessname.IgnorePrefix(this.prefixTxtBox.Text, ',', '，');
             this.textBox1.Text = businessname;
-            toolStripStatusLabel1.Text = this.textBox1.Text;
             textBox1.Focus();
             textBox1.SelectionStart = textBox1.Text.Length;
             Reflesh_dgvColms();
