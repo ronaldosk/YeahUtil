@@ -99,6 +99,7 @@
     <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\Tables.cs" />
     <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\View.cs" />
     <Compile Include="Function\CodeGenerate\Framework\PhysicalDataModel\Views.cs" />
+    <Compile Include="Function\CodeGenerate\Framework\TemplateEngine\Adapters\DefaultEngineAdapter.cs" />
     <Compile Include="Function\CodeGenerate\Framework\TemplateEngine\Adapters\NVelocityEngineAdapter.cs" />
     <Compile Include="Function\CodeGenerate\Framework\TemplateEngine\ITemplateEngine.cs" />
     <Compile Include="Function\CodeGenerate\Framework\TemplateEngine\TemplateData.cs" />
