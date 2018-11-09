@@ -1007,9 +1007,14 @@ namespace YUtils
                 CopyDirectory(NextFolder.FullName, childdestpath, exceptfile);
             }
         }
+
+        public static void Open(string FolderPath)
+        {
+            System.Diagnostics.Process.Start(FolderPath);
+        }
         #endregion
 
-        
+
     }
     #endregion
 

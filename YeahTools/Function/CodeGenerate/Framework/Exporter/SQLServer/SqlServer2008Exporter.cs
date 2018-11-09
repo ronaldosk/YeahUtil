@@ -42,7 +42,7 @@ namespace CodeBuilder.DataSource.Exporter
         {
             Tables tables = new Tables(10);
 
-            string sqlCmd = "select [name],[object_id] from sys.tables where type='U'";
+            string sqlCmd = "select [name],[object_id] from sys.tables where type='U' order by [name]";
             SqlDataReader dr = SqlHelper.ExecuteReader(connectionString, CommandType.Text, sqlCmd);
             while (dr.Read())
             {
@@ -67,7 +67,7 @@ namespace CodeBuilder.DataSource.Exporter
         {
             Views views = new Views(10);
 
-            string sqlCmd = "select [name],[object_id] from sys.views where type='V'";
+            string sqlCmd = "select [name],[object_id] from sys.views where type='V' order by [name]";
             SqlDataReader dr = SqlHelper.ExecuteReader(connectionString, CommandType.Text, sqlCmd);
             while (dr.Read())
             {

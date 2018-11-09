@@ -55,10 +55,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -113,6 +109,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tbtableName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -142,11 +141,11 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(830, 43);
+            this.checkBox1.Location = new System.Drawing.Point(11, 20);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(186, 16);
+            this.checkBox1.Size = new System.Drawing.Size(132, 16);
             this.checkBox1.TabIndex = 13;
-            this.checkBox1.Text = "Business Name Is Camel-Case";
+            this.checkBox1.Text = "Name Is Camel-Case";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -194,6 +193,7 @@
             // 
             this.dbTreeView.CheckBoxes = true;
             this.dbTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dbTreeView.HideSelection = false;
             this.dbTreeView.ImageIndex = 0;
             this.dbTreeView.ImageList = this.treeNodeImageList;
             this.dbTreeView.Location = new System.Drawing.Point(3, 17);
@@ -330,7 +330,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(312, 21);
             this.textBox7.TabIndex = 1;
-            this.textBox7.Text = "Areas\\Plat\\Views\\Contracts";
+            this.textBox7.Text = "Views\\Contracts";
             // 
             // label7
             // 
@@ -343,22 +343,22 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.checkBox2);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Location = new System.Drawing.Point(425, 74);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(591, 168);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "App Service";
+            this.groupBox1.Text = "Business Option";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(98, 129);
+            this.textBox4.Location = new System.Drawing.Point(116, 129);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(458, 21);
             this.textBox4.TabIndex = 5;
@@ -369,43 +369,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(9, 132);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(77, 12);
+            this.label4.Size = new System.Drawing.Size(101, 12);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Service File";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(98, 73);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(458, 21);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "IContractAppService.cs";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 76);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 12);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Interface File";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(98, 20);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(458, 21);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "Domain/Plat/Contracts";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Folder";
+            this.label4.Text = "Entity Framework";
             // 
             // textBox1
             // 
@@ -890,6 +856,35 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Table Name：";
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(204, 20);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(102, 16);
+            this.checkBox2.TabIndex = 14;
+            this.checkBox2.Text = "Ignore Prefix";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(312, 18);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(144, 21);
+            this.textBox2.TabIndex = 15;
+            this.textBox2.Text = "t,v,T,V,ts";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(462, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 12);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "(separated by commas)";
+            // 
             // CodeGenerate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -899,7 +894,6 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.statusStrip1);
@@ -973,10 +967,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1032,5 +1022,8 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label2;
     }
 }

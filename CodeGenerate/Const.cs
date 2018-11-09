@@ -15,6 +15,7 @@ namespace CodeGenerate.Template
         public static string businessNameLow = "[businessName]";//business实例的名称，规则是首字母小写
 
         public static string AppPath = AssemblyHelper.GetDirectoryName(typeof(Const));
+        public static string OutputPath = $@"{AppPath}\Output";
         public static string AppTempFolder = @"\Template\Application";
         public static string DtoTempFolder = @"\Template\Application\Dtos";
         public static string CoreTempFolder = @"\Template\Core";
@@ -30,6 +31,7 @@ namespace CodeGenerate.Template
         public static string pathIAppServiceFile = AppPath + Path.Combine(AppTempFolder, IAppServiceFile);
         public static string pathEntityFile = AppPath + Path.Combine(CoreTempFolder, EntityFile);
         public static string pathDtoListFile = AppPath + Path.Combine(DtoTempFolder, ListDtoFile);
+        public static string pathCreateDtoFile = AppPath + Path.Combine(DtoTempFolder, CreateFile);
 
 
 

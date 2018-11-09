@@ -61,12 +61,22 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="Template\Core\BusinessName.entity" />
-    <None Include="Template\Application\Dtos\CreateBusinessNameInput.create" />
-    <None Include="Template\Application\Dtos\BusinessNameListDto.dto" />
+    <None Include="Template\Core\BusinessName.entity">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Template\Application\Dtos\CreateBusinessNameInput.create">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Template\Application\Dtos\BusinessNameListDto.dto">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Compile Include="Const.cs" />
-    <None Include="Template\Application\IBusinessNameAppService.isvr" />
-    <None Include="Template\Application\BusinessNameAppService.svr" />
+    <None Include="Template\Application\IBusinessNameAppService.isvr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Template\Application\BusinessNameAppService.svr">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <EmbeddedResource Include="CodeGenerate.resx">
       <DependentUpon>CodeGenerate.cs</DependentUpon>
     </EmbeddedResource>

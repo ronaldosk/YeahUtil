@@ -52,10 +52,12 @@ namespace CodeGenerate
                 _businessName = value;
                 //if (Set(ref _businessName, value))
                 {
-                    ServiceFolder = BusinessName + "s";
-                    ServiceInterfaceName = $"I{BusinessName}AppService";
-                    ServiceName = $"{BusinessName}AppService";
-                    ViewFolder = $@"App\Main\views\{ServiceFolder.LowerFirstChar()}";
+                    ServiceFolder = $@"\Application\{BusinessName}s";//BusinessName + "s";
+                    ServiceInterfaceName = $"I{BusinessName}AppService.cs";
+                    ServiceName = $"{BusinessName}AppService.cs";
+                    ViewFolder = $@"\Views\{ServiceFolder.LowerFirstChar()}";
+                    DtoFolder = $@"{ServiceFolder}\Dtos";
+                    EntityFolder = $@"\Core\{BusinessName}s";
                 }
             }
         }
@@ -162,15 +164,53 @@ namespace CodeGenerate
 
         #endregion
 
+        #region DtoFolder 属性
+
+        private string _dtoFolder;
+
+        /// <summary>
+        /// 设置或取得 DtoFolder 属性
+        /// 更改属性值并引发PropertyChanged事件
+        /// </summary>
+        public string DtoFolder
+        {
+            get => _dtoFolder;
+
+            set
+            {
+                _dtoFolder = value;
+            }
+        }
+
+        #endregion
+
+        #region EntityFolder 属性
+
+        private string _entityFolder;
+
+        /// <summary>
+        /// 设置或取得 EntityFolder 属性
+        /// 更改属性值并引发PropertyChanged事件
+        /// </summary>
+        public string EntityFolder
+        {
+            get => _entityFolder;
+
+            set
+            {
+                _entityFolder = value;
+            }
+        }
+
+        #endregion
+
 
         private void textBox1_Validated(object sender, EventArgs e)
         {
-            BusinessName = this.textBox1.Text;
+            _businessName = this.textBox1.Text;
 
             if (this.checkBox1.Checked)
                 BusinessName = BusinessName.CamelCaseName();
-            this.textBox2.Text = ServiceFolder;
-            this.textBox3.Text = ServiceInterfaceName;
             this.textBox4.Text = ServiceName;
             this.textBox7.Text = ViewFolder;
             this.textBox1.Text = BusinessName;
@@ -198,7 +238,10 @@ namespace CodeGenerate
 
         private void dbTreeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            this.textBox1.Text = this.dbTreeView.SelectedNode.Text;
+            string businessname = this.dbTreeView.SelectedNode.Text;
+            if (checkBox2.Checked)
+                businessname.IgnorePrefix(this.textBox2.Text, ',', '，');
+            this.textBox1.Text = businessname;
             toolStripStatusLabel1.Text = this.textBox1.Text;
             textBox1.Focus();
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -250,25 +293,31 @@ namespace CodeGenerate
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string businessName = this.textBox1.Text;
-            string appserver = Const.AppPath + Path.Combine(Const.AppTempFolder, string.Format("{0}AppService.cs", businessName));
-            string iappserver = Const.AppPath + Path.Combine(Const.AppTempFolder, string.Format("I{0}AppService.cs", businessName));
-            string entityfile = Const.AppPath + Path.Combine(Const.CoreTempFolder, string.Format("{0}.cs", businessName));
+            BusinessName = this.textBox1.Text;
+            string appserver = Const.OutputPath + Path.Combine(ServiceFolder, ServiceName);
+            string iappserver = Const.OutputPath + Path.Combine(ServiceFolder, ServiceInterfaceName);
+            string dtolist = Const.OutputPath + Path.Combine(DtoFolder, string.Format("{0}ListDto.cs", BusinessName));
+            string createdto = Const.OutputPath + Path.Combine(DtoFolder, string.Format("Create{0}Input.cs", BusinessName));
 
-            string dtolist = Const.AppPath + Path.Combine(Const.DtoTempFolder, string.Format("{0}ListDto.cs", businessName));
-            string createdto = Const.AppPath + Path.Combine(Const.DtoTempFolder, string.Format("Create{0}Input.cs", businessName));
+            string entityfile = Const.OutputPath + Path.Combine(EntityFolder, string.Format("{0}.cs", BusinessName));
 
-            string[] tempString = { "[BusinessName]", "[businessName]", "[AppName]" }, newString = { businessName, businessName.LowerCamelCaseName(), "SunRoseWMS" };
+            string[] tempString = { "[BusinessName]", "[businessName]", "[AppName]" }, newString = { BusinessName, BusinessName.LowerCamelCaseName(), "SunRoseWMS" };
             CreateFileByReplaceKeyFromTemplateFile(tempString, newString, Const.pathAppServiceFile, appserver);
 
-            string[] tempString2 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString2 = { businessName, businessName.LowerCamelCaseName(), "SunRoseWMS" };
+            string[] tempString2 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString2 = { BusinessName, BusinessName.LowerCamelCaseName(), "SunRoseWMS" };
             CreateFileByReplaceKeyFromTemplateFile(tempString2, newString2, Const.pathIAppServiceFile, iappserver);
 
-            string[] tempString3 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString3 = { businessName, businessName.LowerCamelCaseName(), "SunRoseWMS" };
-            CreateFileByReplaceKeyFromTemplateFile(tempString3, newString3, Const.pathEntityFile, entityfile);
 
-            string[] tempString4 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString4 = { businessName, businessName.LowerCamelCaseName(), "SunRoseWMS" };
-            CreateFileByReplaceKeyFromTemplateFile(tempString4, newString4, Const.pathDtoListFile, dtolist);
+            string[] tempString3 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString3 = { BusinessName, BusinessName.LowerCamelCaseName(), "SunRoseWMS" };
+            CreateFileByReplaceKeyFromTemplateFile(tempString3, newString3, Const.pathDtoListFile, dtolist);
+
+            //string[] tempString4 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString4 = { BusinessName, BusinessName.LowerCamelCaseName(), "SunRoseWMS" };
+            //CreateFileByReplaceKeyFromTemplateFile(tempString4, newString4, Const.pathCreateDtoFile, dtolist);
+
+            string[] tempString5 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString5 = { BusinessName, BusinessName.LowerCamelCaseName(), "SunRoseWMS" };
+            CreateFileByReplaceKeyFromTemplateFile(tempString5, newString5, Const.pathEntityFile, entityfile);
+
+            DirectoryHelper.Open(Const.OutputPath);
         }
 
         private void CreateFileByReplaceKeyFromTemplateFile(string[] tempString, string[] newString, string templateFile, string destinationFile)
@@ -278,6 +327,8 @@ namespace CodeGenerate
                 contents = contents.Replace(tempString[i], newString[i]);
             if (File.Exists(destinationFile))
                 File.Delete(destinationFile);
+            if (!Directory.Exists(Path.GetDirectoryName(destinationFile)))
+                Directory.CreateDirectory(Path.GetDirectoryName(destinationFile));
             File.WriteAllText(destinationFile, contents);
         }
     }

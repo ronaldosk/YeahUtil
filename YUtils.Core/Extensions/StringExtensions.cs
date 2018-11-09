@@ -26,7 +26,7 @@ namespace YUtils
         {
             sName = sName.TrimEnd();
             DoubleLink<char> dlStr = new DoubleLink<char>();
-            for(int i=0;i<sName.Length;i++)
+            for (int i = 0; i < sName.Length; i++)
             {
                 dlStr.Append(i, sName[i]);
             }
@@ -54,7 +54,7 @@ namespace YUtils
             string outStr = "";
             for (int i = 0; i < dlStr.GetSize(); i++)
                 outStr += dlStr.Get(i).ToString();
-            
+
 
             return outStr;
         }
@@ -124,11 +124,7 @@ namespace YUtils
                 return str;
             return Regex.Replace(str, "[']", "\"");
         }
-    }
 
-    #region 工具类--对string对象的操作
-    public static class NumberString
-    {
 
         #region 公有方法
         public static Decimal ToDec(this string source)
@@ -193,8 +189,41 @@ namespace YUtils
 
         #endregion
 
+        /// <summary>
+        /// 按照指定的前缀过滤字符串
+        /// </summary>
+        /// <param name="baseString">待处理的字符串</param>
+        /// <param name="PrefixStrings">定义前缀的字符串</param>
+        /// <param name="splitchars">前缀的字符串中字符的分隔字符集</param>
+        /// <returns></returns>
+        public static string IgnorePrefix(this string baseString,string PrefixStrings, params char[] splitchars)
+        {
+            string[] PrefixStringArry = PrefixStrings.SortDesc(',', '，');
+            foreach (var str in PrefixStringArry)
+            {
+                if (baseString.IndexOf(str) == 0)
+                {
+                    baseString = baseString.Remove(0, str.Length);
+                    return baseString;
+                }
+            }
+
+            return baseString;
+        }
+
+        public static string[] SortDesc(this string PrefixStrings, params char[] splitchars)
+        {
+            string[] PrefixStringArry = PrefixStrings.Split(splitchars);
+            PrefixStringArry = PrefixStringArry.OrderByDescending(p => p).ToArray();
+            return PrefixStringArry;
+        }
+
+        public static string[] SortAsc(this string PrefixStrings, params char[] splitchars)
+        {
+            string[] PrefixStringArry = PrefixStrings.Split(splitchars);
+            PrefixStringArry = PrefixStringArry.OrderBy(p => p).ToArray();
+            return PrefixStringArry;
+        }
 
     }
-
-    #endregion
 }
