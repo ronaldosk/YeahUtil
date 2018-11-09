@@ -1,11 +1,13 @@
 ﻿using CodeBuilder.Configuration;
 using CodeBuilder.PhysicalDataModel;
 using CodeBuilder.WinForm.UI;
+using CodeGenerate.Template;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -159,7 +161,7 @@ namespace CodeGenerate
         }
 
         #endregion
-        
+
 
         private void textBox1_Validated(object sender, EventArgs e)
         {
@@ -182,7 +184,7 @@ namespace CodeGenerate
             this.dbTreeView.SelectedNode = rootNode;
         }
 
-        
+
         private void CombDataSourceItems()
         {
             this.comboBox1.Items.Clear();
@@ -190,7 +192,7 @@ namespace CodeGenerate
             foreach (DataSourceElement dataSource in ConfigManager.DataSourceSection.DataSources)
             {
                 this.comboBox1.Items.Add(dataSource.Name);
-                
+
             }
         }
 
@@ -244,6 +246,39 @@ namespace CodeGenerate
         {
             DataSourceConfig dscfgdlg = new DataSourceConfig();
             dscfgdlg.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string businessName = this.textBox1.Text;
+            string appserver = Const.AppPath + Path.Combine(Const.AppTempFolder, string.Format("{0}AppService.cs", businessName));
+            string iappserver = Const.AppPath + Path.Combine(Const.AppTempFolder, string.Format("I{0}AppService.cs", businessName));
+            string entityfile = Const.AppPath + Path.Combine(Const.CoreTempFolder, string.Format("{0}.cs", businessName));
+
+            string dtolist = Const.AppPath + Path.Combine(Const.DtoTempFolder, string.Format("{0}ListDto.cs", businessName));
+            string createdto = Const.AppPath + Path.Combine(Const.DtoTempFolder, string.Format("Create{0}Input.cs", businessName));
+
+            string[] tempString = { "[BusinessName]", "[businessName]", "[AppName]" }, newString = { businessName, businessName.LowerCamelCaseName(), "SunRoseWMS" };
+            CreateFileByReplaceKeyFromTemplateFile(tempString, newString, Const.pathAppServiceFile, appserver);
+
+            string[] tempString2 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString2 = { businessName, businessName.LowerCamelCaseName(), "SunRoseWMS" };
+            CreateFileByReplaceKeyFromTemplateFile(tempString2, newString2, Const.pathIAppServiceFile, iappserver);
+
+            string[] tempString3 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString3 = { businessName, businessName.LowerCamelCaseName(), "SunRoseWMS" };
+            CreateFileByReplaceKeyFromTemplateFile(tempString3, newString3, Const.pathEntityFile, entityfile);
+
+            string[] tempString4 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString4 = { businessName, businessName.LowerCamelCaseName(), "SunRoseWMS" };
+            CreateFileByReplaceKeyFromTemplateFile(tempString4, newString4, Const.pathDtoListFile, dtolist);
+        }
+
+        private void CreateFileByReplaceKeyFromTemplateFile(string[] tempString, string[] newString, string templateFile, string destinationFile)
+        {
+            string contents = File.ReadAllText(templateFile);
+            for (int i = 0; i < tempString.Length; i++)
+                contents = contents.Replace(tempString[i], newString[i]);
+            if (File.Exists(destinationFile))
+                File.Delete(destinationFile);
+            File.WriteAllText(destinationFile, contents);
         }
     }
 }

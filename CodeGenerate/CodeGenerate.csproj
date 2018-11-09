@@ -62,9 +62,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Template\Core\BusinessName.entity" />
-    <None Include="Template\Application\Dtos\CreateTaskInput.create" />
-    <None Include="Template\Application\Dtos\TaskListDto.dto" />
-    <Compile Include="Template\Const.cs" />
+    <None Include="Template\Application\Dtos\CreateBusinessNameInput.create" />
+    <None Include="Template\Application\Dtos\BusinessNameListDto.dto" />
+    <Compile Include="Const.cs" />
     <None Include="Template\Application\IBusinessNameAppService.isvr" />
     <None Include="Template\Application\BusinessNameAppService.svr" />
     <EmbeddedResource Include="CodeGenerate.resx">

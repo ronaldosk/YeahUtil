@@ -30,6 +30,11 @@ namespace YUtils.Core
         #endregion
 
         #region GetDirectoryName
+        public static string GetDirectoryName(Type type)
+        {
+            return GetDirectoryName(type.Assembly);
+        }
+
         public static string GetDirectoryName( Assembly assembly )
         {
             return System.IO.Path.GetDirectoryName(GetAssemblyPath(assembly));
