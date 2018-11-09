@@ -121,7 +121,6 @@
     <Compile Include="Function\CodeGenerate\UI\Components\GenerationProgressChangedEventHandler.cs" />
     <Compile Include="Function\CodeGenerate\UI\Helpers\ExportModelHelper.cs" />
     <Compile Include="Function\CodeGenerate\UI\Helpers\GenerationHelper.cs" />
-    <Compile Include="Function\CodeGenerate\UI\Helpers\MessageBoxHelper.cs" />
     <Compile Include="Function\CodeGenerate\UI\ModelManager.cs" />
     <Compile Include="Function\CodeGenerate\UserCtrls\BaseOptionsPage.cs">
       <SubType>UserControl</SubType>

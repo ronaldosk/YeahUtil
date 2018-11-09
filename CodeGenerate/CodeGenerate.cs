@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using YUtils;
+using YUtils.Core;
 
 namespace CodeGenerate
 {
@@ -320,6 +321,14 @@ namespace CodeGenerate
 
             DirectoryHelper.Open(Const.OutputPath);
 
+            var generationObjects = GenerationHelper.GetGenerationObjects(this.dbTreeView);
+            int genObjectCount = generationObjects.Sum(x => x.Value.Count);
+            if (genObjectCount == 0)
+            {
+                MessageBoxHelper.DisplayInfo("You should checked a tables or views treenode");
+                return;
+            }
+            this.genProgressBar.Maximum = genObjectCount*4;//划重点，这里的4是根据CreateFileByReplaceKeyFromTemplateFile调用次数相关的
             GenerationParameter parameter = new GenerationParameter(
                 ModelManager.Clone(),
                 GenerationHelper.GetGenerationObjects(this.dbTreeView),
@@ -360,6 +369,11 @@ namespace CodeGenerate
             if (!Directory.Exists(Path.GetDirectoryName(destinationFile)))
                 Directory.CreateDirectory(Path.GetDirectoryName(destinationFile));
             File.WriteAllText(destinationFile, contents);
+        }
+
+        private void codeGeneration_ProgressChanged(GenerationProgressChangedEventArgs args)
+        {
+            this.genProgressBar.Value = args.ProgressPercentage;
         }
     }
 }

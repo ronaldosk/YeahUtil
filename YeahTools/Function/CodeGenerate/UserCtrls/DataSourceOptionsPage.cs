@@ -12,6 +12,7 @@ namespace CodeBuilder.WinForm.UI.OptionsPages
     using YeahTools.Properties;
     using Util;
     using Configuration;
+    using YUtils.Core;
 
     public partial class DataSourceOptionsPage : BaseOptionsPage
     {

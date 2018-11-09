@@ -2,11 +2,11 @@
 using System.Text;
 using System.Windows.Forms;
 
-namespace CodeBuilder.WinForm.UI
+namespace YUtils.Core
 {
     public class MessageBoxHelper
     {
-        private static readonly string dialogCaption = "CodeBuilder";
+        private static readonly string dialogCaption = "YUtilsCore";
 
         public static DialogResult Display(string message)
         {

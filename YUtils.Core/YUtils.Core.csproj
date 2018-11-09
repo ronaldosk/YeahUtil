@@ -80,6 +80,7 @@
     <Compile Include="Http\HttRequest.cs" />
     <Compile Include="IOHelper\AssemblyHelper.cs" />
     <Compile Include="IOHelper\ConvertHelper.cs" />
+    <Compile Include="IOHelper\MessageBoxHelper.cs" />
     <Compile Include="IOHelper\PathHelper.cs" />
     <Compile Include="IOHelper\SerializeHelper.cs" />
     <Compile Include="IOHelper\XMLHelper.cs" />
