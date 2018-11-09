@@ -339,7 +339,7 @@ namespace CodeGenerate
         }
 
         string language = "C#";
-        string templateEngine = "NVelocity";
+        string templateEngine = "default";
         string packagename = "SunRoseWMS";
         string author = "Ronaldosk Ye";
         string version = "1.0";
