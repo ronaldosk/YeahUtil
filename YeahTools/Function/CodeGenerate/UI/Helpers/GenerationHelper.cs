@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using CodeBuilder.PhysicalDataModel;
 
 namespace CodeBuilder.WinForm.UI
 {
@@ -33,7 +34,13 @@ namespace CodeBuilder.WinForm.UI
             {
                 if (node.Checked && node.Tag != null)
                 {
-                    tags.Add(node.Tag.ToString());
+                    if (node.Tag is BaseTable)
+                    {
+                        BaseTable cols = node.Tag as BaseTable;
+                        tags.Add(cols.DisplayName);
+                    }
+                    else
+                        tags.Add(node.Tag.ToString());
                 }
                 GetCheckedTags(node.Nodes, tags);
             }
@@ -46,7 +53,13 @@ namespace CodeBuilder.WinForm.UI
             {
                 if (node.Checked && node.Tag != null)
                 {
-                    tags.Add(node.Tag.ToString());
+                    if (node.Tag is BaseTable)
+                    {
+                        BaseTable cols = node.Tag as BaseTable;
+                        tags.Add(cols.DisplayName);
+                    }
+                    else
+                        tags.Add(node.Tag.ToString());
                 }
                 GetCheckedTags(node.Nodes, tags);
             }

@@ -62,7 +62,6 @@ namespace CodeBuilder.WinForm.UI
 
                 userStateToLifetime[taskId] = asyncOp;
             }
-
             WorkerEventHandler workerDelegate = new WorkerEventHandler(GenerateWorker);
             workerDelegate.BeginInvoke(parameter, asyncOp, null, null);
         }
@@ -94,6 +93,7 @@ namespace CodeBuilder.WinForm.UI
 
                 foreach (string templateName in parameter.Settings.TemplatesNames)
                 {
+                    MessageBoxHelper.Display(templateName);
                     this.GenerateCode(parameter, templateEngine, templateName, ref genratedCount, ref errorCount, ref progressCount, asyncOp);
                 }
             }
@@ -114,7 +114,7 @@ namespace CodeBuilder.WinForm.UI
                     ConfigManager.SettingsSection.Languages[parameter.Settings.Language].Alias,
                     ConfigManager.SettingsSection.TemplateEngines[parameter.Settings.TemplateEngine].Name,
                     ConfigManager.TemplateSection.Templates[templateName].DisplayName, parameter.Settings.Package, modelId);
-                MessageBoxHelper.Ask(modelId);
+                
                 PathHelper.CreateCodeFileNamePath(codeFileNamePath);
 
                 foreach (string objId in parameter.GenerationObjects[modelId])

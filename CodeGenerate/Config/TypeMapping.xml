@@ -1,6 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <typeMappingSection>
   <typeMappings>
+    <typeMapping name="sqlserver2008-csharp" database="sqlserver2008" language="C#">
+      <add name="default" langtype="String" default="" alias="" />
+      <add name="nvarchar" langtype="String" default="" alias="" />
+      <add name="bigint" langtype="Int64" default="" alias="" />
+      <add name="binary" langtype="Byte[]" default="" alias="" />
+      <add name="bit" langtype="Boolean" default="" alias="" />
+      <add name="char" langtype="Char" default="" alias="" />
+      <add name="datetime" langtype="DateTime" default="" alias="" />
+      <add name="decimal" langtype="Decimal" default="" alias="" />
+      <add name="float" langtype="Single" default="" alias="" />
+      <add name="image" langtype="Byte[]" default="" alias="" />
+      <add name="int" langtype="Int32" default="" alias="" />
+      <add name="money" langtype="Double" default="" alias="" />
+      <add name="nchar" langtype="String" default="" alias="" />
+      <add name="ntext" langtype="String" default="" alias="" />
+      <add name="numeric" langtype="Double" default="" alias="" />
+      <add name="nvarchar" langtype="String" default="" alias="" />
+      <add name="real" langtype="Single" default="" alias="" />
+      <add name="smalldatetime" langtype="DateTime" default="" alias="" />
+      <add name="smallint" langtype="Int16" default="" alias="" />
+      <add name="smallmoney" langtype="String" default="" alias="" />
+      <add name="sql_variant" langtype="Object" default="" alias="" />
+      <add name="text" langtype="String" default="" alias="" />
+      <add name="timestamp" langtype="DateTime" default="" alias="" />
+      <add name="tinyint" langtype="Byte" default="" alias="" />
+      <add name="uniqueidentifier" langtype="Guid" default="" alias="" />
+      <add name="varbinary" langtype="Byte[]" default="" alias="" />
+      <add name="varchar" langtype="String" default="" alias="" />
+    </typeMapping>
     <typeMapping name="sqlserver2005-csharp" database="sqlserver2005" language="C#">
       <add name="default" langtype="String" default="" alias="" />
       <add name="nvarchar" langtype="String" default="" alias="" />

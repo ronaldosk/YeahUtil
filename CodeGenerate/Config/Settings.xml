@@ -38,7 +38,7 @@
   </pdmDatabases>
   <templateEngines>
     <templateEngine name="NVelocity" ext=".nv" adapter="CodeBuilder.TemplateEngine.NVelocityEngineAdapter,YeahTools" />
-    <templateEngine name="default" ext="" adapter="default,YeahTools" />
+    <templateEngine name="default" ext="" adapter="CodeBuilder.TemplateEngine.DefaultEngineAdapter,YeahTools" />
   </templateEngines>
   <appSettings>
     <add key="typeMapper" value="CodeBuilder.TypeMapping.DefaultTypeMapper,YeahTools" />

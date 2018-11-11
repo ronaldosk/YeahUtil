@@ -26,5 +26,8 @@
     <template name="mybatis-controller.java.nv" displayName="mybatis-controller"
       language="JAVA" engine="NVelocity" fileName="java\NVelocity\mybatis-controller.nv"
       prefix="" suffix="Controller" url="" desc="" category="" version="" />
+    <template name="default" displayName="default"
+      language="C#" engine="default" fileName=""
+      prefix="" suffix="Controller" url="" desc="" category="" version="" />
   </templates>
 </templateSection>

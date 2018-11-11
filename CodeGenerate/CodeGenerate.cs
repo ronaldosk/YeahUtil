@@ -1,5 +1,7 @@
 ﻿using CodeBuilder.Configuration;
 using CodeBuilder.PhysicalDataModel;
+using CodeBuilder.TemplateEngine;
+using CodeBuilder.TypeMapping;
 using CodeBuilder.WinForm.UI;
 using CodeGenerate.Template;
 using System;
@@ -314,22 +316,59 @@ namespace CodeGenerate
             string[] tempString5 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString5 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
             CreateFileByReplaceKeyFromTemplateFile(tempString5, newString5, Const.pathEntityFile, entityfile);
 
-            DirectoryHelper.Open(Const.OutputPath);
+            //DirectoryHelper.Open(Const.OutputPath);
 
-            var generationObjects = GenerationHelper.GetGenerationObjects(this.dbTreeView);
-            int genObjectCount = generationObjects.Sum(x => x.Value.Count);
-            if (genObjectCount == 0)
-            {
-                MessageBoxHelper.DisplayInfo("You should checked a tables or views treenode");
-                return;
-            }
-            this.genProgressBar.Maximum = genObjectCount*4;//划重点，这里的4是根据CreateFileByReplaceKeyFromTemplateFile调用次数相关的
-            GenerationParameter parameter = new GenerationParameter(
-                ModelManager.Clone(),
-                GenerationHelper.GetGenerationObjects(this.dbTreeView),
-                this.GetGenerationSettings());
+            
             try
             {
+                var generationObjects = GenerationHelper.GetGenerationObjects(this.dbTreeView);
+                int genObjectCount = generationObjects.Sum(x => x.Value.Count);
+                if (genObjectCount == 0)
+                {
+                    MessageBoxHelper.DisplayInfo("You should checked a tables or views treenode");
+                    return;
+                }
+                this.genProgressBar.Maximum = genObjectCount * 4;//划重点，这里的4是根据CreateFileByReplaceKeyFromTemplateFile调用次数相关的
+                GenerationParameter parameter = new GenerationParameter(
+                    ModelManager.Clone(),
+                    GenerationHelper.GetGenerationObjects(this.dbTreeView),
+                    this.GetGenerationSettings());
+
+                //string adapterTypeName = ConfigManager.SettingsSection.TemplateEngines[parameter.Settings.TemplateEngine].Adapter;
+                //ITemplateEngine templateEngine = (ITemplateEngine)Activator.CreateInstance(Type.GetType(adapterTypeName));
+
+                //foreach (string modelId in parameter.GenerationObjects.Keys)
+                //{
+
+                //    int genratedCount=0,   errorCount=0,   progressCount=0;
+                //    foreach (string objId in parameter.GenerationObjects[modelId])
+                //    {
+                //        IMetaData modelObject = ModelManager.GetModelObject(parameter.Models[modelId], objId);
+                //        TemplateData templateData = TemplateDataBuilder.Build(modelObject, parameter.Settings,
+                //                "default", parameter.Models[modelId].Database, modelId);
+
+                //        if (templateData == null || !templateEngine.Run(templateData)) errorCount++; else genratedCount++;
+                //        string currentCodeFileName = templateData == null ? string.Empty : templateData.CodeFileName;
+
+                //        if (modelObject is Table)
+                //        {
+                //            Table table = modelObject as Table;
+                //            foreach (var column in table.Columns.Values)
+                //            {
+
+                //                string langType  = column.LanguageType;
+                //                string defaultValue = column.LanguageDefaultValue;
+                //                string typeAlias = column.LanguageTypeAlias;
+                //            }
+                //        }
+
+                //        if (modelObject is CodeBuilder.PhysicalDataModel.View)
+                //        {
+                //            CodeBuilder.PhysicalDataModel.View view = modelObject as CodeBuilder.PhysicalDataModel.View;
+                //        }
+                //    }
+                //}
+
                 this.codeGeneration.GenerateAsync(parameter, Guid.NewGuid().ToString());
             }
             catch (Exception ex)
