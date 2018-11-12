@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace [AppName].[BusinessName]s
 {
-    public class [BusinessName]AppService : SimpleTaskAppAppServiceBase, I[BusinessName]AppService
+    public class [BusinessName]AppService :[BusinessName]AppServiceBase, I[BusinessName]AppService
     {
         private readonly IRepository<[BusinessName]> _[businessName]Repository;
 
@@ -22,9 +22,7 @@ namespace [AppName].[BusinessName]s
         {
             var [businessName]s = await _[businessName]Repository
                 .GetAll()
-                .Include(t => t.AssignedPerson)
-                .WhereIf(input.State.HasValue, t => t.State == input.State.Value)
-                .OrderByDescending(t => t.CreationTime)
+                .Include(t => t.Id)
                 .ToListAsync();
 
             return new ListResultDto<[BusinessName]ListDto>(
