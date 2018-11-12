@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using CodeBuilder.PhysicalDataModel;
+using CodeBuilder.Configuration;
+using CodeBuilder.TemplateEngine;
 
 namespace CodeBuilder.WinForm.UI
 {
@@ -63,6 +65,67 @@ namespace CodeBuilder.WinForm.UI
                 }
                 GetCheckedTags(node.Nodes, tags);
             }
+        }
+
+        public static void GenerateCode(out string entitys,TreeView treeView, string[] templateNames,string tablePrefix, bool isOmitTablePrefix, bool isCamelCaseName)
+        {
+            entitys = "";
+            GenerationParameter parameter = new GenerationParameter(
+                   ModelManager.Clone(),
+                   GetGenerationObjects(treeView),
+                   GetGenerationSettings(templateNames,tablePrefix, isOmitTablePrefix, isCamelCaseName));
+
+            foreach (string modelId in parameter.GenerationObjects.Keys)
+            {
+                foreach (string objId in parameter.GenerationObjects[modelId])
+                {
+                    IMetaData modelObject = ModelManager.GetModelObject(parameter.Models[modelId], objId);
+                    TemplateData templateData = TemplateDataBuilder.Build(modelObject, parameter.Settings,
+                            "default", parameter.Models[modelId].Database, modelId);
+
+                    if (templateData == null ) throw new ArgumentNullException("Can not create template data!");
+                    string currentCodeFileName = templateData == null ? string.Empty : templateData.CodeFileName;
+
+                    if (modelObject is Table)
+                    {
+                        Table table = modelObject as Table;
+                        foreach (var column in table.Columns.Values)
+                        {
+                            string langType = column.LanguageType;
+                            string defaultValue = column.LanguageDefaultValue;
+                            string typeAlias = column.LanguageTypeAlias;
+
+                            entitys += string.Format("public {0} {1} {{get;set;}}\r\n\t\t", langType, column.DisplayName);
+                        }
+                    }
+                    else if (modelObject is PhysicalDataModel.View)
+                    {
+                        PhysicalDataModel.View view = modelObject as PhysicalDataModel.View;
+                        foreach (var column in view.Columns.Values)
+                        {
+                            string langType = column.LanguageType;
+                            string defaultValue = column.LanguageDefaultValue;
+                            string typeAlias = column.LanguageTypeAlias;
+                            entitys += string.Format("public {0} {1} {{get;set;}}}\r\n\t\t", langType, column.DisplayName);
+                        }
+                    }
+                }
+            }
+        }
+
+        static string language = "C#";
+        static string templateEngine = "default";
+        static string packagename = "SunRoseWMS";
+        static string author = "Ronaldosk Ye";
+        static string version = "1.0";
+        static string codeFileEncoding = "UTF-8";
+
+
+        private static GenerationSettings GetGenerationSettings(string[] templateNames,string tablePrefix ,bool isOmitTablePrefix, bool isCamelCaseName)
+        {
+            GenerationSettings settings = new GenerationSettings(language, templateEngine, packagename, tablePrefix, author, version,
+                templateNames ,codeFileEncoding, isOmitTablePrefix, isCamelCaseName);
+            return settings;
         }
     }
 }

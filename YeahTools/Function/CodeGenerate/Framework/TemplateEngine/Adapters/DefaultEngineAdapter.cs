@@ -34,7 +34,7 @@ namespace CodeBuilder.TemplateEngine
                     encoding = new UTF8Encoding(false);
                 }
                 //To do
-                MessageBoxHelper.Display("templateFile");
+                //MessageBoxHelper.Display("templateFile");
                 return true;
             }
             catch (Exception ex)

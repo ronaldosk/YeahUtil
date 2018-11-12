@@ -93,7 +93,7 @@ namespace CodeBuilder.WinForm.UI
 
                 foreach (string templateName in parameter.Settings.TemplatesNames)
                 {
-                    MessageBoxHelper.Display(templateName);
+                    //MessageBoxHelper.Display(templateName);
                     this.GenerateCode(parameter, templateEngine, templateName, ref genratedCount, ref errorCount, ref progressCount, asyncOp);
                 }
             }

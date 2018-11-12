@@ -301,75 +301,41 @@ namespace CodeGenerate
             string entityfile = Const.OutputPath + Path.Combine(EntityFolder, string.Format("{0}.cs", BusinessName));
 
             string[] tempString = { "[BusinessName]", "[businessName]", "[AppName]" }, newString = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
-            CreateFileByReplaceKeyFromTemplateFile(tempString, newString, Const.pathAppServiceFile, appserver);
+            FileHelper.CreateFileByReplaceKeyFromTemplateFile(tempString, newString, Const.pathAppServiceFile, appserver);
 
             string[] tempString2 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString2 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
-            CreateFileByReplaceKeyFromTemplateFile(tempString2, newString2, Const.pathIAppServiceFile, iappserver);
+            FileHelper.CreateFileByReplaceKeyFromTemplateFile(tempString2, newString2, Const.pathIAppServiceFile, iappserver);
 
 
             string[] tempString3 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString3 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
-            CreateFileByReplaceKeyFromTemplateFile(tempString3, newString3, Const.pathDtoListFile, dtolist);
+            FileHelper.CreateFileByReplaceKeyFromTemplateFile(tempString3, newString3, Const.pathDtoListFile, dtolist);
 
             //string[] tempString4 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString4 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
             //CreateFileByReplaceKeyFromTemplateFile(tempString4, newString4, Const.pathCreateDtoFile, dtolist);
+            string entities = "";
+            GenerationHelper.GenerateCode(out entities,this.dbTreeView, new string[] { "default" }, this.prefixTxtBox.Text, this.checkBox2.Checked, this.checkBox1.Checked);
+            string[] tempString5 = { "[BusinessName]", "[businessName]", "[AppName]", "[MemberList]" }, newString5 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename, entities };
+            FileHelper.CreateFileByReplaceKeyFromTemplateFile(tempString5, newString5, Const.pathEntityFile, entityfile);
 
-            string[] tempString5 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString5 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
-            CreateFileByReplaceKeyFromTemplateFile(tempString5, newString5, Const.pathEntityFile, entityfile);
-
-            //DirectoryHelper.Open(Const.OutputPath);
-
+            DirectoryHelper.Open(Const.OutputPath);
             
             try
             {
-                var generationObjects = GenerationHelper.GetGenerationObjects(this.dbTreeView);
-                int genObjectCount = generationObjects.Sum(x => x.Value.Count);
-                if (genObjectCount == 0)
-                {
-                    MessageBoxHelper.DisplayInfo("You should checked a tables or views treenode");
-                    return;
-                }
-                this.genProgressBar.Maximum = genObjectCount * 4;//划重点，这里的4是根据CreateFileByReplaceKeyFromTemplateFile调用次数相关的
-                GenerationParameter parameter = new GenerationParameter(
-                    ModelManager.Clone(),
-                    GenerationHelper.GetGenerationObjects(this.dbTreeView),
-                    this.GetGenerationSettings());
-
-                //string adapterTypeName = ConfigManager.SettingsSection.TemplateEngines[parameter.Settings.TemplateEngine].Adapter;
-                //ITemplateEngine templateEngine = (ITemplateEngine)Activator.CreateInstance(Type.GetType(adapterTypeName));
-
-                //foreach (string modelId in parameter.GenerationObjects.Keys)
+                //var generationObjects = GenerationHelper.GetGenerationObjects(this.dbTreeView);
+                //int genObjectCount = generationObjects.Sum(x => x.Value.Count);
+                //if (genObjectCount == 0)
                 //{
-
-                //    int genratedCount=0,   errorCount=0,   progressCount=0;
-                //    foreach (string objId in parameter.GenerationObjects[modelId])
-                //    {
-                //        IMetaData modelObject = ModelManager.GetModelObject(parameter.Models[modelId], objId);
-                //        TemplateData templateData = TemplateDataBuilder.Build(modelObject, parameter.Settings,
-                //                "default", parameter.Models[modelId].Database, modelId);
-
-                //        if (templateData == null || !templateEngine.Run(templateData)) errorCount++; else genratedCount++;
-                //        string currentCodeFileName = templateData == null ? string.Empty : templateData.CodeFileName;
-
-                //        if (modelObject is Table)
-                //        {
-                //            Table table = modelObject as Table;
-                //            foreach (var column in table.Columns.Values)
-                //            {
-
-                //                string langType  = column.LanguageType;
-                //                string defaultValue = column.LanguageDefaultValue;
-                //                string typeAlias = column.LanguageTypeAlias;
-                //            }
-                //        }
-
-                //        if (modelObject is CodeBuilder.PhysicalDataModel.View)
-                //        {
-                //            CodeBuilder.PhysicalDataModel.View view = modelObject as CodeBuilder.PhysicalDataModel.View;
-                //        }
-                //    }
+                //    MessageBoxHelper.DisplayInfo("You should checked a tables or views treenode");
+                //    return;
                 //}
-
-                this.codeGeneration.GenerateAsync(parameter, Guid.NewGuid().ToString());
+                //this.genProgressBar.Maximum = genObjectCount * 4;//划重点，这里的4是根据CreateFileByReplaceKeyFromTemplateFile调用次数相关的
+                
+                //GenerationParameter parameter = new GenerationParameter(
+                //    ModelManager.Clone(),
+                //    GenerationHelper.GetGenerationObjects(this.dbTreeView),
+                //    this.GetGenerationSettings());
+                
+                //this.codeGeneration.GenerateAsync(parameter, Guid.NewGuid().ToString());
             }
             catch (Exception ex)
             {
@@ -392,19 +358,7 @@ namespace CodeGenerate
                 codeFileEncoding, this.checkBox2.Checked, this.checkBox1.Checked);
             return settings;
         }
-
-        private void CreateFileByReplaceKeyFromTemplateFile(string[] tempString, string[] newString, string templateFile, string destinationFile)
-        {
-            string contents = File.ReadAllText(templateFile);
-            for (int i = 0; i < tempString.Length; i++)
-                contents = contents.Replace(tempString[i], newString[i]);
-            if (File.Exists(destinationFile))
-                File.Delete(destinationFile);
-            if (!Directory.Exists(Path.GetDirectoryName(destinationFile)))
-                Directory.CreateDirectory(Path.GetDirectoryName(destinationFile));
-            File.WriteAllText(destinationFile, contents);
-        }
-
+        
         private void codeGeneration_ProgressChanged(GenerationProgressChangedEventArgs args)
         {
             this.genProgressBar.Value = args.ProgressPercentage;
