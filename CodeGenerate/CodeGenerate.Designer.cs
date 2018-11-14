@@ -43,6 +43,7 @@
             this.tsmi_DataSourceCfg = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.genProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgvView = new System.Windows.Forms.DataGridView();
@@ -53,6 +54,9 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.prefixTxtBox = new System.Windows.Forms.TextBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -109,15 +113,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tbtableName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.prefixTxtBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.genProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.codeGeneration = new CodeBuilder.WinForm.UI.CodeGeneration(this.components);
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.dgvLocalization = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -141,6 +148,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.toolStrip4.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalization)).BeginInit();
             this.SuspendLayout();
             // 
             // checkBox1
@@ -266,6 +275,11 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
+            // genProgressBar
+            // 
+            this.genProgressBar.Name = "genProgressBar";
+            this.genProgressBar.Size = new System.Drawing.Size(400, 16);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(941, 422);
@@ -361,6 +375,35 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Business Option";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(462, 24);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(131, 12);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "(separated by commas)";
+            // 
+            // prefixTxtBox
+            // 
+            this.prefixTxtBox.Location = new System.Drawing.Point(312, 18);
+            this.prefixTxtBox.Name = "prefixTxtBox";
+            this.prefixTxtBox.Size = new System.Drawing.Size(144, 21);
+            this.prefixTxtBox.TabIndex = 15;
+            this.prefixTxtBox.Text = "t,v,T,V";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(204, 20);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(102, 16);
+            this.checkBox2.TabIndex = 14;
+            this.checkBox2.Text = "Ignore Prefix";
+            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // textBox4
             // 
@@ -463,6 +506,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(13, 79);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -862,35 +906,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Table Name：";
             // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(204, 20);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(102, 16);
-            this.checkBox2.TabIndex = 14;
-            this.checkBox2.Text = "Ignore Prefix";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // prefixTxtBox
-            // 
-            this.prefixTxtBox.Location = new System.Drawing.Point(312, 18);
-            this.prefixTxtBox.Name = "prefixTxtBox";
-            this.prefixTxtBox.Size = new System.Drawing.Size(144, 21);
-            this.prefixTxtBox.TabIndex = 15;
-            this.prefixTxtBox.Text = "t,v,T,V";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(462, 24);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 12);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "(separated by commas)";
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.checkBox5);
@@ -902,26 +917,6 @@
             this.groupBox6.TabIndex = 23;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ORM Option (Plan...)";
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(11, 21);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(60, 16);
-            this.checkBox3.TabIndex = 0;
-            this.checkBox3.Text = "Dapper";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(87, 21);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(90, 16);
-            this.checkBox4.TabIndex = 0;
-            this.checkBox4.Text = "Nhibernate ";
-            this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // checkBox5
             // 
@@ -936,14 +931,89 @@
             this.checkBox5.Text = "EF";
             this.checkBox5.UseVisualStyleBackColor = true;
             // 
-            // genProgressBar
+            // checkBox4
             // 
-            this.genProgressBar.Name = "genProgressBar";
-            this.genProgressBar.Size = new System.Drawing.Size(400, 16);
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(87, 21);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(90, 16);
+            this.checkBox4.TabIndex = 0;
+            this.checkBox4.Text = "Nhibernate ";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(11, 21);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(60, 16);
+            this.checkBox3.TabIndex = 0;
+            this.checkBox3.Text = "Dapper";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // codeGeneration
             // 
             this.codeGeneration.ProgressChanged += new CodeBuilder.WinForm.UI.GenerationProgressChangedEventHandler(this.codeGeneration_ProgressChanged);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.dgvLocalization);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(983, 266);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "本地化";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // dgvLocalization
+            // 
+            this.dgvLocalization.AllowUserToAddRows = false;
+            this.dgvLocalization.AllowUserToDeleteRows = false;
+            this.dgvLocalization.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLocalization.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewCheckBoxColumn3,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.dgvLocalization.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLocalization.Location = new System.Drawing.Point(3, 3);
+            this.dgvLocalization.Name = "dgvLocalization";
+            this.dgvLocalization.RowHeadersVisible = false;
+            this.dgvLocalization.RowTemplate.Height = 23;
+            this.dgvLocalization.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgvLocalization.Size = new System.Drawing.Size(977, 260);
+            this.dgvLocalization.TabIndex = 2;
+            // 
+            // dataGridViewCheckBoxColumn3
+            // 
+            this.dataGridViewCheckBoxColumn3.HeaderText = "选择";
+            this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
+            this.dataGridViewCheckBoxColumn3.Width = 40;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "模块名";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 230;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "默认";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 300;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "语种";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "内容";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 300;
             // 
             // CodeGenerate
             // 
@@ -1002,6 +1072,8 @@
             this.toolStrip4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLocalization)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1096,5 +1168,12 @@
         private System.Windows.Forms.CheckBox checkBox5;
         private CodeBuilder.WinForm.UI.CodeGeneration codeGeneration;
         private System.Windows.Forms.ToolStripProgressBar genProgressBar;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.DataGridView dgvLocalization;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

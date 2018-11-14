@@ -95,7 +95,7 @@ namespace CodeBuilder.WinForm.UI
                             string defaultValue = column.LanguageDefaultValue;
                             string typeAlias = column.LanguageTypeAlias;
 
-                            entitys += string.Format("public {0} {1} {{get;set;}}\r\n\t\t", langType, column.DisplayName);
+                            entitys += string.Format("public {0} {1} {{get;set;}}\r\n\r\n\t\t", langType, column.DisplayName);
                         }
                     }
                     else if (modelObject is PhysicalDataModel.View)
@@ -106,7 +106,7 @@ namespace CodeBuilder.WinForm.UI
                             string langType = column.LanguageType;
                             string defaultValue = column.LanguageDefaultValue;
                             string typeAlias = column.LanguageTypeAlias;
-                            entitys += string.Format("public {0} {1} {{get;set;}}}\r\n\t\t", langType, column.DisplayName);
+                            entitys += string.Format("public {0} {1} {{get;set;}}}\r\n\r\n\t\t", langType, column.DisplayName);
                         }
                     }
                 }

@@ -8,6 +8,6 @@ namespace [AppName].[BusinessName]s.Dtos
     [AutoMapFrom(typeof([BusinessName]))]
     public class [BusinessName]ListDto : EntityDto, IHasCreationTime
     {
-        //public string Title { get; set; }
+       [MemberList]
     }
 }

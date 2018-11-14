@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace [AppName].[BusinessName]s
 {
-    public class [BusinessName]AppService :[BusinessName]AppServiceBase, I[BusinessName]AppService
+    public class [BusinessName]AppService :[AppName]AppServiceBase, I[BusinessName]AppService
     {
         private readonly IRepository<[BusinessName]> _[businessName]Repository;
 
@@ -18,7 +18,7 @@ namespace [AppName].[BusinessName]s
             _[businessName]Repository = [businessName]Repository;
         }
 
-        public async Task<ListResultDto<[BusinessName]ListDto>> GetAll(GetAll[BusinessName]sInput input)
+        public async Task<ListResultDto<[BusinessName]ListDto>> GetAll()
         {
             var [businessName]s = await _[businessName]Repository
                 .GetAll()

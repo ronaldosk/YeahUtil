@@ -5,7 +5,7 @@
       <add name="default" langtype="string" default="" alias="" />
       <add name="nvarchar" langtype="string" default="" alias="" />
       <add name="bigint" langtype="long" default="" alias="" />
-      <add name="binary" langtype="byte[]" default="" alias="" />s
+      <add name="binary" langtype="byte[]" default="" alias="" />
       <add name="bit" langtype="bool" default="" alias="" />
       <add name="char" langtype="char" default="" alias="" />
       <add name="datetime" langtype="DateTime" default="" alias="" />

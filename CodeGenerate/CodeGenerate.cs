@@ -300,22 +300,29 @@ namespace CodeGenerate
 
             string entityfile = Const.OutputPath + Path.Combine(EntityFolder, string.Format("{0}.cs", BusinessName));
 
-            string[] tempString = { "[BusinessName]", "[businessName]", "[AppName]" }, newString = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
+            string localizationdefaultfile = Path.Combine(Const.LocalizationFolder, $@"{BusinessName}.xml");
+
+            string[] tempString = { Const.businessName, Const.businessNameLow, Const.appName, }, newString = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
             FileHelper.CreateFileByReplaceKeyFromTemplateFile(tempString, newString, Const.pathAppServiceFile, appserver);
 
-            string[] tempString2 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString2 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
+            string[] tempString2 = { Const.businessName, Const.businessNameLow, Const.appName, }, newString2 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
             FileHelper.CreateFileByReplaceKeyFromTemplateFile(tempString2, newString2, Const.pathIAppServiceFile, iappserver);
 
 
-            string[] tempString3 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString3 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
+            string entities = "",UIWords = "<text name=\"Projects\">Projects</text>";
+            GenerationHelper.GenerateCode(out entities, this.dbTreeView, new string[] { "default" }, this.prefixTxtBox.Text, this.checkBox2.Checked, this.checkBox1.Checked);
+
+            string[] tempString3 = { Const.businessName, Const.businessNameLow, Const.appName, Const.memberlist }, newString3 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename, entities };
             FileHelper.CreateFileByReplaceKeyFromTemplateFile(tempString3, newString3, Const.pathDtoListFile, dtolist);
 
-            //string[] tempString4 = { "[BusinessName]", "[businessName]", "[AppName]" }, newString4 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename };
-            //CreateFileByReplaceKeyFromTemplateFile(tempString4, newString4, Const.pathCreateDtoFile, dtolist);
-            string entities = "";
-            GenerationHelper.GenerateCode(out entities,this.dbTreeView, new string[] { "default" }, this.prefixTxtBox.Text, this.checkBox2.Checked, this.checkBox1.Checked);
-            string[] tempString5 = { "[BusinessName]", "[businessName]", "[AppName]", "[MemberList]" }, newString5 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename, entities };
+            string[] tempString4 = { Const.businessName, Const.businessNameLow, Const.appName, Const.memberlist }, newString4 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename, entities };
+            FileHelper.CreateFileByReplaceKeyFromTemplateFile(tempString4, newString4, Const.pathCreateDtoFile, createdto);
+
+            string[] tempString5 = { Const.businessName, Const.businessNameLow, Const.appName, Const.memberlist }, newString5 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename, entities };
             FileHelper.CreateFileByReplaceKeyFromTemplateFile(tempString5, newString5, Const.pathEntityFile, entityfile);
+
+            string[] tempString6 = { Const.businessName, Const.businessNameLow, Const.appName, Const.localizations }, newString6 = { BusinessName, BusinessName.LowerCamelCaseName(), packagename, UIWords };
+            FileHelper.CreateFileByReplaceKeyFromTemplateFile(tempString6, newString6, Const.pathLocalizationsFile, localizationdefaultfile);
 
             DirectoryHelper.Open(Const.OutputPath);
             
