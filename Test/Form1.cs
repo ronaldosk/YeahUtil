@@ -81,5 +81,11 @@ namespace Test
             darry.dQSortDesc();
             MessageBox.Show(darry.ShowAll());
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //SystemInformation
+            //Environment.
+        }
     }
 }

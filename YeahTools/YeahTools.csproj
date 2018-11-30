@@ -135,6 +135,9 @@
     <Compile Include="Function\CodeGenerate\UserCtrls\DataSourceOptionsPage.designer.cs">
       <DependentUpon>DataSourceOptionsPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Function\CodeGenerate\Vue\CreateVueTemple.cs" />
+    <Compile Include="Function\CodeGenerate\Vue\JsTemplate.cs" />
+    <Compile Include="Function\CodeGenerate\Vue\ListVueTemplate.cs" />
     <Compile Include="Function\UserControls\LabelCombox.cs">
       <SubType>UserControl</SubType>
     </Compile>
