@@ -111,6 +111,7 @@
     <Compile Include="Function\CodeGenerate\Framework\Util\Logging\InternalTrace.cs" />
     <Compile Include="Function\CodeGenerate\Framework\Util\Logging\InternalTraceWriter.cs" />
     <Compile Include="Function\CodeGenerate\Framework\Util\Logging\Logger.cs" />
+    <Compile Include="Function\CodeGenerate\UIModel.cs" />
     <Compile Include="Function\CodeGenerate\UI\Components\CodeGeneration.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -201,6 +202,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Function\CodeGenerate\Vue\Comment\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -18,7 +18,7 @@
 
           <el-col :span="24">
             <el-form-item style="margin-bottom: 40px;" prop="title">
-              <MDinput v-model="postForm.title" :maxlength="100" name="name" required>
+              <MDinput v-model="postForm.projname" :maxlength="100" name="name" required>
                 项目名
               </MDinput>
             </el-form-item>
@@ -26,28 +26,24 @@
             <div class="postInfo-container">
               <el-row>
                 <el-col :span="8">
-                  <el-form-item label-width="45px" label="作者:" class="postInfo-container-item">
-                    <el-select v-model="postForm.author" :remote-method="getRemoteUserList" filterable remote placeholder="搜索用户">
+                  <el-form-item label-width="60px" label="施工商:" class="postInfo-container-item">
+                    <el-select v-model="postForm.customer" :remote-method="getRemoteUserList" filterable remote placeholder="搜索用户">
                       <el-option v-for="(item,index) in userListOptions" :key="item+index" :label="item" :value="item"/>
                     </el-select>
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="10">
-                  <el-form-item label-width="80px" label="发布时间:" class="postInfo-container-item">
-                    <el-date-picker v-model="postForm.display_time" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="选择日期时间"/>
+                  <el-form-item label-width="80px" label="施工时间:" class="postInfo-container-item">
+                    <el-date-picker v-model="postForm.time" type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="选择日期时间"/>
                   </el-form-item>
                 </el-col>
 
                 <el-col :span="6">
-                  <el-form-item label-width="60px" label="重要性:" class="postInfo-container-item">
-                    <el-rate
-                      v-model="postForm.importance"
-                      :max="3"
-                      :colors="['#99A9BF', '#F7BA2A', '#FF9900']"
-                      :low-threshold="1"
-                      :high-threshold="3"
-                      style="margin-top:8px;"/>
+                  <el-form-item label-width="60px" label="工程师:" class="postInfo-container-item">
+                    <el-select v-model="postForm.engineer" :remote-method="getRemoteUserList" filterable remote placeholder="搜索用户">
+                      <el-option v-for="(item,index) in userListOptions" :key="item+index" :label="item" :value="item"/>
+                    </el-select>
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -55,12 +51,12 @@
           </el-col>
         </el-row>
 
-        <el-form-item style="margin-bottom: 40px;" label-width="45px" label="摘要:">
-          <el-input :rows="1" v-model="postForm.content_short" type="textarea" class="article-textarea" autosize placeholder="请输入内容"/>
+        <el-form-item style="margin-bottom: 40px;" label-width="80px" label="工程地址:">
+          <el-input :rows="1" v-model="postForm.customeraddress" type="textarea" class="article-textarea" autosize placeholder="请输入内容"/>
           <span v-show="contentShortLength" class="word-counter">{{ contentShortLength }}字</span>
         </el-form-item>
 
-        <div class="editor-container">
+        <div class="editor-container">  
           <Tinymce ref="editor" :height="400" v-model="postForm.content" />
         </div>
 
@@ -96,14 +92,15 @@ const defaultForm = {
   platforms: ['a-platform'],
   comment_disabled: false,
   importance: 0,
-  name: '',//项目名称
+  projname: '',//项目名称
   memo: '',//项目说明
   code: '',//项目代号
   time: undefined,//创建时间
   //status: 'draft',//项目状态
   mgr: '',//项目经理
   engineer: '',//项目工程师
-  customer: ''//项目客户
+  customer: '',//项目客户
+  customeraddress: ''//客户地址
 }
 
 export default {

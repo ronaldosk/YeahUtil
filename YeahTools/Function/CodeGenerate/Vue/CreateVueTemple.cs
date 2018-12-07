@@ -12,5 +12,7 @@ namespace YeahTools.Function.CodeGenerate.Vue
     /// </summary>
     public class CreateVueTempleHelper
     {
+
     }
+
 }

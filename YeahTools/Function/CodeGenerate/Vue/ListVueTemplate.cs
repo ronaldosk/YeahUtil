@@ -12,5 +12,15 @@ namespace YeahTools.Function.CodeGenerate.Vue
     /// </summary>
     public class ListVueTemplateHelper
     {
+        public List<string> input_com_list { get; set; }
+    }
+
+
+    public class VueUIModel
+    {
+        public string i_title;
+        public string elinput =string.Format(@"<el-input :placeholder=""$t('table.title')"" v-model=""listQuery.title"" style =""width: 200px;"" class=""filter -item"" @keyup.enter.native=""handleFilter "" />"); 
+
+
     }
 }
